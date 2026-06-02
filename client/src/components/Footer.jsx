@@ -1,11 +1,17 @@
 import logo from '/src/img/logo.png';
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
         <div className="foot-top">
-          <div>
-            <p className="foot-cta">Bring us your toughest tolerance.</p>
+
+          <div className="foot-brand">
+            <img src={logo} alt="3DMAS" className="foot-brand-logo" />
+            <p className="foot-brand-desc">
+              ISO 9001:2015 certified metrology and precision manufacturing. Serving aerospace, automotive, power and infrastructure sectors across India.
+            </p>
           </div>
 
           <div className="foot-col">
@@ -19,23 +25,26 @@ export default function Footer() {
           </div>
 
           <div className="foot-col">
-            <h4>Studio</h4>
+            <h4>Company</h4>
             <ul>
-              <li>Pune — Corporate &amp; Works</li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/projects">Projects</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+            </ul>
+            <h4 style={{ marginTop: 28 }}>Locations</h4>
+            <ul>
               <li>Balewadi, Pune 411045</li>
-              <li>Vadodara — Works</li>
               <li>Manjusar, Vadodara 391775</li>
             </ul>
           </div>
+
         </div>
 
         <div className="foot-bottom">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <Logo size={26} />
-            <span>© {new Date().getFullYear()} 3DMAS — 3 Dimensional Measurement &amp; Solution</span>
-          </div>
-          <div className="socials">
-            <a href="https://www.3dmas.in" target="_blank" rel="noreferrer">www.3dmas.in</a>
+          <span>© {new Date().getFullYear()} 3DMAS — 3 Dimensional Measurement &amp; Solution</span>
+          <div className="foot-socials">
+            <a href="https://www.3dmas.in" target="_blank" rel="noreferrer">3dmas.in</a>
             <a href="#">LinkedIn</a>
             <a href="#">Instagram</a>
           </div>
