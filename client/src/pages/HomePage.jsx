@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers } from 'lucide-react';
-import ClientLogos from '../components/ClientLogos.jsx';
+import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers, ArrowRight } from 'lucide-react';
+import Media from '../components/Media.jsx';
+import HeroCanvas from '../components/HeroCanvas.jsx';
+import Counter from '../components/Counter.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -12,119 +14,78 @@ const fadeUp = (delay = 0) => ({
 });
 
 const SERVICES = [
-  { icon: <ScanLine size={18} />, t: 'Dimensional Inspection',     d: 'On-site CMM inspection with Leica & FARO laser trackers and Romer portable arms — first-article and lot inspection across large fabricated structures.' },
-  { icon: <Target size={18} />,   t: '3D Laser Scanning',          d: 'Long-range and blue-light scanning with Leica P50, GOM and FARO Focus — from handheld components to kilometre-scale structures.' },
-  { icon: <RotateCcw size={18} />, t: 'Reverse Engineering',       d: 'Production-ready CAD reconstructed from castings, dies, moulds and worn legacy components, delivered to customer-specified tolerances.' },
-  { icon: <Settings2 size={18} />, t: 'Tool & Mold Manufacturing', d: 'Composite lay-up molds, trimming jigs and vacuum clamping fixtures, machined on double-column VMCs and verified in-house.' },
-  { icon: <Crosshair size={18} />, t: 'Laser Alignment & Mapping',  d: 'Steam turbine digital mapping, generator stator key-bar setting, and precision laser alignment for steel and paper mills.' },
-  { icon: <Layers size={18} />,   t: 'Metrology Consulting',        d: 'Measurement system analysis (MSA), GD&T training, process improvement and on-site calibration programs for manufacturing teams.' },
+  { icon: <ScanLine size={18} />,  t: 'On-Site CMM Inspection',     d: 'Dimensional inspection with Leica & FARO laser trackers and FARO / ROMER portable arms — first-article and lot inspection.' },
+  { icon: <Target size={18} />,    t: '3D Laser Scanning',          d: 'Handheld, blue-light and long-range scanning with GOM, FARO Focus and the Leica P50 — from components to kilometre-scale structures.' },
+  { icon: <RotateCcw size={18} />, t: 'Reverse Engineering',        d: 'Production-intent CAD reconstructed from castings, dies, moulds and worn legacy components.' },
+  { icon: <Settings2 size={18} />, t: 'Tool, Die & Mold Manufacturing', d: 'Composite lay-up molds, trimming jigs and vacuum clamping fixtures, machined on double-column VMCs.' },
+  { icon: <Crosshair size={18} />, t: 'Laser Alignment & Mapping',  d: 'Steam turbine digital mapping, generator stator key-bar setting and laser alignment for steel, cement and paper mills.' },
+  { icon: <Layers size={18} />,    t: 'R&D, Prototyping & Rental',  d: 'R&D and prototype development, jig and fixture design, plus laser tracker rental for skilled in-house teams.' },
 ];
 
 const INDUSTRIES = [
-  { n: '01', t: 'Aerospace & Defence', d: 'First-article inspection, jig verification and dimensional audit for aerospace structures and components.' },
-  { n: '02', t: 'Automotive & EV',     d: 'Body-in-white scanning, tooling inspection and dimensional reporting for OEMs and Tier-1 suppliers.' },
-  { n: '03', t: 'Energy & Power',       d: 'Turbine mapping, generator alignment and outage measurement services for power generation facilities.' },
-  { n: '04', t: 'Heavy Engineering',    d: 'Structural verification, reverse engineering and alignment for large fabricated assemblies and plant equipment.' },
-  { n: '05', t: 'Oil & Gas',            d: 'Flange alignment, piping inspection and equipment mapping for upstream and downstream infrastructure.' },
+  { n: '01', t: 'Aerospace & Defence', d: 'Composite molds, fixtures and first-article inspection for aerospace structures and skin parts.' },
+  { n: '02', t: 'Power & Turbines',     d: 'Mapping and alignment for hydro, steam, gas, nuclear and wind turbine plants.' },
+  { n: '03', t: 'Steel & Heavy Plants', d: 'Steel mill laser alignment and large-scale measurement for heavy fabricated assemblies.' },
+  { n: '04', t: 'Automotive',           d: 'Line building, tooling inspection and dimensional reporting for OEMs and Tier-1 suppliers.' },
+  { n: '05', t: 'Railway & Marine',     d: 'Railway, shipbuilding and marine fabrication measurement and production-line layouts.' },
 ];
 
-const SOLUTIONS = [
-  {
-    n: '01',
-    t: 'Reduce measurement uncertainty across your supply chain.',
-    body: 'Unresolved measurement uncertainty at any stage — from raw castings to final assembly — becomes a cost, a delay, or a warranty claim. 3DMAS provides traceable, documented measurement data that your quality team and customers can act on.',
-    img: 'Metrology engineer using CMM arm on a large forged component. Clear datum references visible. Professional facility environment.',
-  },
-  {
-    n: '02',
-    t: 'Accelerate reverse engineering without legacy documentation.',
-    body: 'When OEM drawings no longer exist — or never existed — our engineers reconstruct production-intent CAD from the physical component using structured light and laser scanning. The result is a parametric model ready for tooling, casting or machining.',
-    img: 'Close-up of 3D scan data overlay on physical component. Point cloud on screen in background. Clean technical environment.',
-  },
-];
-
-const PROJECTS = [
-  { tag: 'Aerospace',   t: 'Wing Spar Jig Verification',      d: 'Full dimensional audit of a 14-metre aircraft wing assembly jig using a Leica AT960 laser tracker.' },
-  { tag: 'Power',       t: 'Steam Turbine Digital Mapping',    d: 'Rotor and casing digital mapping during a planned outage for a 250 MW power plant in Gujarat.' },
-  { tag: 'Automotive',  t: 'Body Panel Reverse Engineering',   d: 'Scan-to-CAD reconstruction of legacy hood and door panels for a commercial vehicle OEM.' },
-];
-
-const PROCESS = [
-  { n: '01', t: 'Discovery',   d: 'We review your drawings, tolerances, and site conditions before mobilisation. No assumptions, no surprises.' },
-  { n: '02', t: 'Measurement', d: 'Certified engineers execute the measurement plan on-site or at our facility using calibrated equipment.' },
-  { n: '03', t: 'Engineering', d: 'Data is processed, compared to nominal, and compiled into a structured report or CAD deliverable.' },
-  { n: '04', t: 'Delivery',    d: 'Reports delivered in your required format — PDF, Excel, PolyWorks, CATIA, or Siemens NX.' },
-];
-
-const TICKER_TEXT = 'CMM INSPECTION · 3D LASER SCANNING · REVERSE ENGINEERING · DIMENSIONAL AUDIT · LASER ALIGNMENT · COMPOSITE TOOLING · METROLOGY CONSULTING · PRECISION MANUFACTURING · ';
-
-function MediaPh({ label, note, ratio }) {
-  return (
-    <div className="media-ph" style={{ aspectRatio: ratio || '4/3' }}>
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="M21 15l-5-5L5 21" />
-      </svg>
-      <div className="media-ph-label">{label}</div>
-      {note && <p className="media-ph-note">{note}</p>}
-    </div>
-  );
-}
+const TICKER_TEXT = 'CMM INSPECTION · 3D LASER SCANNING · REVERSE ENGINEERING · DIMENSIONAL AUDIT · LASER ALIGNMENT · COMPOSITE TOOLING · DIGITAL MAPPING · PRECISION MANUFACTURING · ';
 
 export default function HomePage() {
   return (
     <main>
 
-      {/* 1 ── HERO */}
+      {/* 1 - HERO */}
       <section className="hero">
+        <HeroCanvas />
         <div className="hero-body-wrap">
           <motion.div
-            className="hero-content"
+            className="hero-intro"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease }}
           >
             <p className="hero-tag">ISO 9001:2015 Certified</p>
-            <h1 className="hero-h1">
-              Engineering-Grade<br />Measurement Solutions
-            </h1>
-            <p className="hero-desc">
-              CMM inspection, 3D laser scanning, reverse engineering and precision tooling — delivered by certified metrology engineers across India.
+            <p>
+              3DMAS is a 3-dimensional measurement &amp; solution company - delivering on-site inspection, 3D laser scanning, reverse engineering and precision tooling across India since 2015.
             </p>
-            <div className="hero-actions">
-              <Link to="/services" className="btn-primary">Explore Services</Link>
-              <Link to="/contact" className="btn-secondary">Contact Us</Link>
-            </div>
           </motion.div>
 
           <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            className="hero-content"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease, delay: 0.12 }}
           >
-            <MediaPh
-              label="Hero Image"
-              ratio="4/3"
-              note="Professional engineer operating a FARO or Leica laser tracker on an industrial component. Facility environment, sharp focus, no stock imagery."
-            />
+            <h1 className="hero-h1">
+              Precision<br />That <span className="acc">Performs</span>
+            </h1>
+            <div className="hero-actions">
+              <Link to="/services" className="btn-primary">Explore Services</Link>
+              <Link to="/contact" className="btn-outline-white">Contact Us</Link>
+            </div>
           </motion.div>
         </div>
 
         <div className="hero-meta wrap">
           <div className="hero-meta-item">
             <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">Established 2015 — Pune &amp; Vadodara</span>
+            <span className="hero-meta-text">Established 2015 - Pune HQ, pan-India presence</span>
           </div>
           <div className="hero-meta-item">
             <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">28,000 sq ft manufacturing &amp; metrology facility</span>
+            <span className="hero-meta-text">28,000 sq ft facility - 124 specialists</span>
           </div>
           <div className="hero-meta-item">
             <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">Leica · FARO · GOM · Renishaw instrumentation</span>
+            <span className="hero-meta-text">Leica - FARO - GOM - ROMER - ScanTech</span>
           </div>
+        </div>
+
+        <div className="hero-cue" aria-hidden="true">
+          <span>Scroll</span>
+          <span className="hero-cue-line" />
         </div>
       </section>
 
@@ -136,14 +97,38 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 2 ── CAPABILITIES */}
+      {/* STAT BAND */}
+      <section className="section section--surface bg-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
+        <div className="wrap">
+          <motion.div className="statband" {...fadeUp()}>
+            <div className="stat-cell">
+              <div className="stat-num"><Counter to={2015} group={false} /></div>
+              <div className="stat-lbl">Established — pan-India presence</div>
+            </div>
+            <div className="stat-cell">
+              <div className="stat-num"><Counter to={28000} /><span className="u">sq ft</span></div>
+              <div className="stat-lbl">Manufacturing &amp; metrology facility</div>
+            </div>
+            <div className="stat-cell">
+              <div className="stat-num"><Counter to={124} /><span className="u">+</span></div>
+              <div className="stat-lbl">Engineers, machinists &amp; specialists</div>
+            </div>
+            <div className="stat-cell">
+              <div className="stat-num">ISO<span className="u">9001:2015</span></div>
+              <div className="stat-lbl">Certified quality management</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2 - CAPABILITIES (teaser -> /services) */}
       <section className="section section--surface">
         <div className="wrap">
           <div className="section-head">
             <motion.div {...fadeUp()}>
-              <p className="section-tag">Capabilities</p>
-              <h2 className="section-h">Full-spectrum measurement<br />and manufacturing services.</h2>
-              <p className="section-sub">From a single first-article inspection to a multi-phase reverse engineering programme — our capabilities cover the complete metrology workflow.</p>
+              <p className="section-tag">What We Do</p>
+              <h2 className="section-h">Measurement and manufacturing<br />under one roof.</h2>
+              <p className="section-sub">Six core capabilities covering the complete metrology workflow - explore the full equipment list and process on the services page.</p>
             </motion.div>
           </div>
           <motion.div
@@ -162,14 +147,31 @@ export default function HomePage() {
                 <div className="cap-icon">{s.icon}</div>
                 <h3>{s.t}</h3>
                 <p>{s.d}</p>
-                <Link to="/services" className="cap-card-link">View details →</Link>
               </motion.div>
             ))}
+          </motion.div>
+          <motion.div {...fadeUp(0.1)} style={{ marginTop: 36 }}>
+            <Link to="/services" className="btn-secondary">View all services <ArrowRight size={15} /></Link>
           </motion.div>
         </div>
       </section>
 
-      {/* 3 ── INDUSTRIES */}
+      {/* VIDEO BAND - 3DMAS in action */}
+      <section className="section section--surface section--border-top video-band">
+        <div className="wrap">
+          <div className="section-head">
+            <motion.div {...fadeUp()}>
+              <p className="section-tag">3DMAS In Action</p>
+              <h2 className="section-h">Precision work, on-site and in-house.</h2>
+              <p className="section-sub">A short look at laser tracking, 3D scanning and tooling across the projects we deliver.</p>
+            </motion.div>
+          </div>
+          <Media type="video" ratio="16/9" label="Showreel / Process"
+            note="Short muted loop: laser tracking, scanning or machining. Add /src/img/showreel.mp4 (+ poster)." />
+        </div>
+      </section>
+
+      {/* 3 - INDUSTRIES (teaser -> /industries) */}
       <section className="section section--border-top">
         <div className="wrap">
           <div className="section-head">
@@ -178,142 +180,22 @@ export default function HomePage() {
               <h2 className="section-h">Serving precision-critical industries.</h2>
             </motion.div>
           </div>
-          <motion.div
-            className="ind-list"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
-          >
+          <motion.div className="ind-list" {...fadeUp(0.05)}>
             {INDUSTRIES.map((ind) => (
-              <motion.div
-                key={ind.n}
-                className="ind-item"
-                variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.4 } } }}
-              >
+              <div className="ind-item" key={ind.n}>
                 <div className="ind-n">{ind.n}</div>
                 <div className="ind-t">{ind.t}</div>
                 <p className="ind-d">{ind.d}</p>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* 4 ── SOLUTIONS */}
-      <section className="section section--surface section--border-top">
-        <div className="wrap">
-          <div className="section-head">
-            <motion.div {...fadeUp()}>
-              <p className="section-tag">Solutions</p>
-              <h2 className="section-h">Measurement intelligence<br />for engineering decisions.</h2>
-            </motion.div>
-          </div>
-          <div className="sol-list">
-            {SOLUTIONS.map((sol, i) => (
-              <motion.div
-                key={i}
-                className={`sol-item${i % 2 !== 0 ? ' sol-item--rev' : ''}`}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, ease }}
-              >
-                <div className="sol-text">
-                  <div className="sol-item-n">Solution {sol.n}</div>
-                  <h3>{sol.t}</h3>
-                  <p>{sol.body}</p>
-                  <Link to="/contact" className="btn-primary">Discuss your project</Link>
-                </div>
-                <div className="sol-media">
-                  <MediaPh label={`Solution ${sol.n} Image`} ratio="4/3" note={sol.img} />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5 ── PROJECT SHOWCASE */}
-      <section className="section section--border-top">
-        <div className="wrap">
-          <div className="section-head">
-            <motion.div {...fadeUp()}>
-              <p className="section-tag">Projects</p>
-              <h2 className="section-h">Selected project work.</h2>
-              <p className="section-sub">A representative sample of measurement and engineering projects delivered across India.</p>
-            </motion.div>
-          </div>
-          <motion.div
-            className="proj-grid"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-40px' }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-          >
-            {PROJECTS.map((p, i) => (
-              <motion.div
-                key={i}
-                className="proj-card"
-                variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
-              >
-                <div className="proj-card-img">
-                  <MediaPh
-                    label="Project Image"
-                    ratio="16/9"
-                    note={`${p.tag} — ${p.t}. Show actual scan data, equipment in use, or inspection report output.`}
-                  />
-                </div>
-                <div className="proj-card-body">
-                  <div className="proj-tag">{p.tag}</div>
-                  <h3>{p.t}</h3>
-                  <p>{p.d}</p>
-                </div>
-              </motion.div>
-            ))}
+          <motion.div {...fadeUp(0.1)} style={{ marginTop: 36 }}>
+            <Link to="/industries" className="btn-secondary">Industries &amp; applications <ArrowRight size={15} /></Link>
           </motion.div>
         </div>
       </section>
 
-      {/* 6 ── PROCESS */}
-      <section className="section section--navy">
-        <div className="wrap">
-          <motion.div {...fadeUp()}>
-            <p className="section-tag section-tag--light">How we work</p>
-            <h2 className="section-h section-h--light">A structured delivery model<br />built for engineering environments.</h2>
-          </motion.div>
-          <motion.div
-            className="process-grid"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-40px' }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.09 } } }}
-          >
-            {PROCESS.map((step) => (
-              <motion.div
-                key={step.n}
-                className="process-step"
-                variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-              >
-                <div className="process-n">{step.n}</div>
-                <h3>{step.t}</h3>
-                <p>{step.d}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 7 ── TRUST */}
-      <section className="section section--surface section--border-top">
-        <div className="wrap">
-          <motion.div {...fadeUp()}>
-            <ClientLogos />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 8 ── CTA */}
+      {/* 4 - CTA */}
       <section className="section section--navy">
         <div className="wrap">
           <motion.div
@@ -324,10 +206,10 @@ export default function HomePage() {
             transition={{ duration: 0.5, ease }}
           >
             <h2>Ready to discuss your measurement requirements?</h2>
-            <p>Our engineers are available to review your project scope and provide a detailed quotation within 24 hours.</p>
+            <p>Our engineers will review your project scope and provide a detailed quotation within 24 hours.</p>
             <div className="cta-actions">
               <Link to="/contact" className="btn-primary">Contact Our Team</Link>
-              <a href="tel:+919687620011" className="btn-outline-white">+91 96876 20011</a>
+              <Link to="/projects" className="btn-outline-white">View Our Work</Link>
             </div>
           </motion.div>
         </div>

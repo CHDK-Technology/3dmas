@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import logo from '/src/img/logo.png';
 
 const NAV_LINKS = [
-  { label: 'About',     href: '/about' },
-  { label: 'Services',  href: '/services' },
-  { label: 'Industries',href: '/industries' },
-  { label: 'Projects',  href: '/projects' },
+  { label: 'About',      href: '/about' },
+  { label: 'Services',   href: '/services' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Projects',   href: '/projects' },
 ];
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => { setOpen(false); }, [location]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -22,27 +30,25 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="nav">
+      <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-brand">
             <img src={logo} alt="3DMAS" className="nav-logo" />
-            <span className="nav-divider" />
-            <div>
-              <div className="nav-brand-name">3DMAS</div>
-              <div style={{ fontSize: 9, color: 'var(--muted-2)', letterSpacing: '.8px', textTransform: 'uppercase' }}>
-                Measurement &amp; Solution
-              </div>
-            </div>
           </Link>
 
           <nav className="nav-links" aria-label="Main navigation">
             {NAV_LINKS.map(l => (
-              <Link key={l.label} to={l.href} className="nav-link">{l.label}</Link>
+              <NavLink
+                key={l.label}
+                to={l.href}
+                className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
+              >
+                {l.label}
+              </NavLink>
             ))}
           </nav>
 
           <div className="nav-cta-group">
-            <a href="tel:+919687620011" className="nav-phone">+91 96876 20011</a>
             <Link to="/contact" className="btn-nav">Contact Us</Link>
           </div>
 
@@ -56,20 +62,19 @@ export default function Navigation() {
         <div className="nav-overlay" role="dialog" aria-modal="true">
           <div className="nav-overlay-head">
             <Link to="/" className="nav-brand">
-              <img src={logo} alt="3DMAS" className="nav-logo" />
-              <span className="nav-brand-name">3DMAS</span>
+              <img src={logo} alt="3DMAS" className="nav-logo" style={{ height: 40 }} />
             </Link>
-            <button className="nav-overlay-close" onClick={() => setOpen(false)} aria-label="Close">✕</button>
+            <button className="nav-overlay-close" onClick={() => setOpen(false)} aria-label="Close">close</button>
           </div>
           <nav className="nav-overlay-links">
             {NAV_LINKS.map(l => (
-              <Link key={l.label} to={l.href} className="nav-overlay-link">{l.label}</Link>
+              <NavLink key={l.label} to={l.href} className="nav-overlay-link">{l.label}</NavLink>
             ))}
-            <Link to="/contact" className="nav-overlay-link">Contact</Link>
+            <NavLink to="/contact" className="nav-overlay-link">Contact</NavLink>
           </nav>
           <div className="nav-overlay-foot">
-            <a href="tel:+919687620011">+91 96876 20011</a>
             <a href="mailto:info@3dmas.in">info@3dmas.in</a>
+            <a href="mailto:sales@3dmas.in">sales@3dmas.in</a>
           </div>
         </div>
       )}

@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <label className="contact-label">Email *</label>
                   <input
                     name="email" type="email" value={form.email} onChange={handleChange} required
-                    placeholder="you@company.com" className="contact-input"
+                    placeholder="you@company.com" className="cct-input"
                     style={focused === 'email' ? { borderColor: 'rgba(42,92,255,.5)' } : {}}
                     onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
                   />
@@ -114,7 +114,7 @@ export default function ContactPage() {
             {[
               { icon: <Mail size={16} />, label: 'Email', value: 'info@3dmas.in\nsales@3dmas.in' },
               { icon: <Phone size={16} />, label: 'Phone', value: '+91 96876 20011\n+91 99750 65096' },
-              { icon: <MapPin size={16} />, label: 'Locations', value: 'Balewadi, Pune 411045\nManjusar, Vadodara 391775' },
+              { icon: <MapPin size={16} />, label: 'Locations', value: 'Pune (HQ): 2nd Floor, A-12 Sawant Elite, Near Sai Eshanya, Balewadi, Pune 411045\nVadodara: 27/3, GIDC, Alindra, Beside ABB Ltd., Manjusar, Vadodara 391775' },
             ].map(item => (
               <div key={item.label} className="contact-info-card">
                 <div className="contact-info-icon">{item.icon}</div>
