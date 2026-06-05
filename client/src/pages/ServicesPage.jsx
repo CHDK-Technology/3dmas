@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers } from 'lucide-react';
+import Seo from '../components/Seo.jsx';
 import Media from '../components/Media.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
@@ -77,6 +78,11 @@ function EquipCard({ m, s }) {
 export default function ServicesPage() {
   return (
     <main style={{ paddingTop: 64 }}>
+      <Seo
+        title="Services — CMM Inspection, 3D Scanning, Reverse Engineering & Tooling"
+        description="Six core metrology capabilities: on-site CMM inspection, 3D laser scanning, reverse engineering, dimensional analysis, alignment and precision tooling using Leica, FARO, GOM and ROMER systems."
+        path="/services"
+      />
 
       {/* HEADER + SERVICES */}
       <section className="section">

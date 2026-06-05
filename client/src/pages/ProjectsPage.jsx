@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Media from '../components/Media.jsx';
+import Seo from '../components/Seo.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -25,6 +26,11 @@ const PROJECTS = [
 export default function ProjectsPage() {
   return (
     <main style={{ paddingTop: 64 }}>
+      <Seo
+        title="Projects & Capabilities"
+        description="A look at the precision measurement, 3D scanning, reverse engineering and tooling projects 3DMAS delivers across Indian industry."
+        path="/projects"
+      />
 
       {/* HEADER + PROJECTS */}
       <section className="section">

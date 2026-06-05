@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Media from '../components/Media.jsx';
+import Seo from '../components/Seo.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -57,6 +58,11 @@ function AppList({ title, items }) {
 export default function IndustriesPage() {
   return (
     <main style={{ paddingTop: 64 }}>
+      <Seo
+        title="Industries We Serve"
+        description="3DMAS delivers precision metrology and tooling to aerospace, automotive, power generation, steel and infrastructure sectors across India."
+        path="/industries"
+      />
 
       {/* HEADER + INDUSTRIES */}
       <section className="section">

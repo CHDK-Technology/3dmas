@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers, ArrowRight } from 'lucide-react';
+import Seo from '../components/Seo.jsx';
 import Media from '../components/Media.jsx';
-import HeroCanvas from '../components/HeroCanvas.jsx';
 import Counter from '../components/Counter.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
@@ -30,15 +30,34 @@ const INDUSTRIES = [
   { n: '05', t: 'Railway & Marine',     d: 'Railway, shipbuilding and marine fabrication measurement and production-line layouts.' },
 ];
 
-const TICKER_TEXT = 'CMM INSPECTION · 3D LASER SCANNING · REVERSE ENGINEERING · DIMENSIONAL AUDIT · LASER ALIGNMENT · COMPOSITE TOOLING · DIGITAL MAPPING · PRECISION MANUFACTURING · ';
 
+const COMPANY_LOGOS = [
+  '/img/ada.png',
+  '/img/alstom.png',
+  '/img/beml.png',
+  '/img/ge.png',
+  '/img/godrej.png',
+  '/img/hal.png',
+  '/img/isro.png',
+  '/img/kirloskar.png',
+  '/img/lmw.png',
+  '/img/lt.png',
+  '/img/mahindra.png',
+  '/img/reliance.png',
+  '/img/tatapower.png',
+  '/img/solar.png',
+];
 export default function HomePage() {
   return (
     <main>
+      <Seo
+        title="Precision 3D Metrology & Measurement"
+        description="ISO 9001:2015 certified metrology partner — on-site CMM inspection, 3D laser scanning, reverse engineering and precision tooling for aerospace, power, steel and automotive industries across India."
+        path="/"
+      />
 
       {/* 1 - HERO */}
       <section className="hero">
-        <HeroCanvas />
         <div className="hero-body-wrap">
           <motion.div
             className="hero-intro"
@@ -46,10 +65,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease }}
           >
-            <p className="hero-tag">ISO 9001:2015 Certified</p>
-            <p>
+            {/* <p>
               3DMAS is a 3-dimensional measurement &amp; solution company - delivering on-site inspection, 3D laser scanning, reverse engineering and precision tooling across India since 2015.
-            </p>
+            </p> */}
           </motion.div>
 
           <motion.div
@@ -59,7 +77,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease, delay: 0.12 }}
           >
             <h1 className="hero-h1">
-              Precision<br />That <span className="acc">Performs</span>
+              Precision<br /> <span className="acc">That Performs</span>
             </h1>
             <div className="hero-actions">
               <Link to="/services" className="btn-primary">Explore Services</Link>
@@ -68,34 +86,44 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <div className="hero-meta wrap">
-          <div className="hero-meta-item">
-            <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">Established 2015 - Pune HQ, pan-India presence</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">28,000 sq ft facility - 124 specialists</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-item-dot" />
-            <span className="hero-meta-text">Leica - FARO - GOM - ROMER - ScanTech</span>
-          </div>
-        </div>
 
-        <div className="hero-cue" aria-hidden="true">
-          <span>Scroll</span>
-          <span className="hero-cue-line" />
-        </div>
+
+
       </section>
 
-      {/* TICKER */}
-      <div className="ticker" aria-hidden="true">
-        <div className="ticker-track">
-          <span>{TICKER_TEXT}</span>
-          <span>{TICKER_TEXT}</span>
+      {/* SECOND SECTION — companies we work with (scrolling) + showreel */}
+      
+
+      <section className="section" style={{ paddingTop: 20, paddingBottom: 80 }}>
+                <div className="wrap" style={{ marginTop:20 }}>
+          <motion.div className="cw-video" {...fadeUp()}>
+            <Media type="video" ratio="16/9" src="/src/img/showreel.mp4" label="Showreel" />
+          </motion.div>
         </div>
-      </div>
+        <div className="wrap">
+          {/* <p className="cw-marquee-label">Companies We Work With</p> */}
+        </div>
+
+        {/* Full-width logo marquee — replace .ph slots with <img> when real logos are ready */}
+        <div className="logo-marquee" aria-label="Companies we work with">
+<div className="logo-marquee-track">
+  {[0, 1].map((set) => (
+    <div className="logo-marquee-set" key={set}>
+      {COMPANY_LOGOS.map((logo, i) => (
+        <div className="logo-marquee-item" key={i}>
+          <img
+            src={logo}
+            alt={`Client ${i + 1}`}
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
+        </div>
+
+      </section>
 
       {/* STAT BAND */}
       <section className="section section--surface bg-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
@@ -153,21 +181,6 @@ export default function HomePage() {
           <motion.div {...fadeUp(0.1)} style={{ marginTop: 36 }}>
             <Link to="/services" className="btn-secondary">View all services <ArrowRight size={15} /></Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* VIDEO BAND - 3DMAS in action */}
-      <section className="section section--surface section--border-top video-band">
-        <div className="wrap">
-          <div className="section-head">
-            <motion.div {...fadeUp()}>
-              <p className="section-tag">3DMAS In Action</p>
-              <h2 className="section-h">Precision work, on-site and in-house.</h2>
-              <p className="section-sub">A short look at laser tracking, 3D scanning and tooling across the projects we deliver.</p>
-            </motion.div>
-          </div>
-          <Media type="video" ratio="16/9" src="/src/img/showreel.mp4" label="Showreel / Process"
-            note="Short muted loop: laser tracking, scanning or machining." />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Microscope, Wrench, Ruler, ScanLine } from 'lucide-react';
+import Seo from '../components/Seo.jsx';
 import Counter from '../components/Counter.jsx';
 import Media from '../components/Media.jsx';
 
@@ -35,6 +36,11 @@ const GOALS = [
 export default function AboutPage() {
   return (
     <main style={{ paddingTop: 64 }}>
+      <Seo
+        title="About Us"
+        description="3DMAS is an ISO 9001:2015 certified metrology and precision manufacturing company delivering accurate 3D measurement, inspection and tooling solutions to industry across India."
+        path="/about"
+      />
 
       {/* HEADER */}
       <section className="section">

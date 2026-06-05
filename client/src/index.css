@@ -28,9 +28,9 @@
   --orange-dark:#dd6f12;
   --orange-light: rgba(240,120,24,.15);
 
-  /* Optional hero photo — drop a file at /src/img/hero.jpg and set:
-     --hero-img: url('/src/img/hero.jpg');  */
-  --hero-img: none;
+  /* Hero background photo — served from client/public/img/.
+     Swap this filename to change the hero image. */
+  --hero-img: url('/img/hero.png');
 
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -60,6 +60,16 @@ button { font-family: var(--sans); cursor: pointer; }
 @media (max-width: 900px)  { .wrap { padding: 0 32px; } }
 @media (max-width: 560px)  { .wrap { padding: 0 20px; } }
 
+
+.cw-video {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cw-video .media-frame {
+  aspect-ratio: 16/8;
+  min-height: 650px;
+}
 /* ──────────────── NAVIGATION ──────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
@@ -225,22 +235,22 @@ button { font-family: var(--sans); cursor: pointer; }
   padding-top: 72px; min-height: 100vh;
   display: flex; flex-direction: column;
   border-bottom: 1px solid var(--border);
-  background:
+  /* background:
     radial-gradient(1100px 520px at 82% 16%, rgba(0,168,228,.13), transparent 60%),
     radial-gradient(820px 480px at 6% 94%, rgba(240,120,24,.13), transparent 60%),
-    linear-gradient(180deg, #0a0d12 0%, #0b0f15 100%);
+    linear-gradient(180deg, #0a0d12 0%, #0b0f15 100%); */
 }
 /* optional photo layer (set --hero-img to enable) */
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background-image: var(--hero-img);
   background-size: cover; background-position: center;
-  opacity: .30;
+  opacity: .42;
 }
 /* readability veil over any photo */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(180deg, rgba(8,10,14,.45) 0%, rgba(8,10,14,.80) 100%);
+  /* background: linear-gradient(180deg, rgba(8,10,14,.45) 0%, rgba(8,10,14,.80) 100%); */
 }
 .hero-body-wrap {
   position: relative; z-index: 1;
@@ -513,6 +523,74 @@ button { font-family: var(--sans); cursor: pointer; }
 /* video band */
 .video-band { position: relative; }
 .video-band .media-frame { box-shadow: 0 30px 80px -40px rgba(0,0,0,.8); }
+
+/* ─── SECOND SECTION: companies we work with (marquee) + showreel ─── */
+.cw-marquee-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); text-align: center; margin-bottom: 30px;
+}
+.logo-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  padding: 30px 0;
+  border: none;
+
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.logo-marquee-track {
+  display: flex; width: max-content;
+  animation: logo-scroll 34s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
+.logo-marquee-set { display: flex; align-items: center; }
+.logo-marquee-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin: 0 36px;
+  opacity: 1;
+  transition: none;
+}
+
+.logo-marquee-item:hover {
+  opacity: 1;
+}
+.logo-marquee-item img {
+  height: 60px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}/* placeholder slot — swap for <img src="/img/clients/x.png" alt="Company" /> */
+.logo-marquee-item--ph {
+  min-width: 150px; padding: 0 24px;
+  border: 1px dashed var(--border-2); border-radius: 8px;
+  color: var(--muted-2); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+}
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track { animation: none; }
+}
+
+.cw-video .media-frame {
+  border-radius: 18px;
+  box-shadow: 0 30px 80px -40px rgba(0,0,0,.8);
+}
+
+@media (max-width: 560px) {
+  .logo-marquee { padding: 20px 0; }
+  .logo-marquee-item { height: 40px; margin: 0 24px; }
+  .logo-marquee-item--ph { min-width: 116px; padding: 0 18px; }
+  .cw-video .media-frame { border-radius: 14px; }
+}
 
 /* ──────────────── HOVER LIFTS ──────────────── */
 .cap-card, .ind-item { transition: background .15s, transform .25s ease; }

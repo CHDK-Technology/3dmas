@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
+import Seo from '../components/Seo.jsx';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
@@ -31,6 +32,11 @@ export default function ContactPage() {
 
   return (
     <div className="contact-page">
+      <Seo
+        title="Contact"
+        description="Start a project with 3DMAS. On-site CMM inspection, 3D laser scanning, reverse engineering and precision tooling. Offices in Pune and Vadodara, serving clients across India."
+        path="/contact"
+      />
       <div className="wrap">
 
         <div className="contact-eyebrow">Contact</div>
@@ -69,7 +75,7 @@ export default function ContactPage() {
                   <label className="contact-label">Email *</label>
                   <input
                     name="email" type="email" value={form.email} onChange={handleChange} required
-                    placeholder="you@company.com" className="cct-input"
+                    placeholder="you@company.com" className="contact-input"
                     style={focused === 'email' ? { borderColor: 'rgba(42,92,255,.5)' } : {}}
                     onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
                   />
