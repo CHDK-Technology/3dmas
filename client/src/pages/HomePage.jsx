@@ -166,8 +166,8 @@ export default function HomePage() {
               <p className="section-sub">A short look at laser tracking, 3D scanning and tooling across the projects we deliver.</p>
             </motion.div>
           </div>
-          <Media type="video" ratio="16/9" label="Showreel / Process"
-            note="Short muted loop: laser tracking, scanning or machining. Add /src/img/showreel.mp4 (+ poster)." />
+          <Media type="video" ratio="16/9" src="/src/img/showreel.mp4" label="Showreel / Process"
+            note="Short muted loop: laser tracking, scanning or machining." />
         </div>
       </section>
 
