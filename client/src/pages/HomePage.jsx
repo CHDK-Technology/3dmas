@@ -83,7 +83,7 @@ export default function HomePage() {
       {/* SECOND SECTION — companies we work with (scrolling) + showreel */}
       
 
-      <section className="section" style={{ paddingTop: 20, paddingBottom: 80 }}>
+      <section className="section" style={{ paddingTop: 20, paddingBottom: 24 }}>
                 <div className="wrap" style={{ marginTop:20 }}>
           <motion.div className="cw-video" {...fadeUp()}>
             <Media type="video" ratio="16/9" src="/img/showreel.mp4" label="Showreel" />
@@ -115,7 +115,7 @@ export default function HomePage() {
       </section>
 
       {/* STAT BAND */}
-      <section className="section section--surface bg-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
+      <section className="section section--surface bg-grid" style={{ paddingTop: 48, paddingBottom: 72 }}>
         <div className="wrap">
           <motion.div className="statband" {...fadeUp()}>
             <div className="stat-cell">
