@@ -9,6 +9,7 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import IndustriesPage from './pages/IndustriesPage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/industries" element={<Page><IndustriesPage /></Page>} />
           <Route path="/projects" element={<Page><ProjectsPage /></Page>} />
           <Route path="/contact" element={<Page><ContactPage /></Page>} />
+          <Route path="*" element={<Page><NotFoundPage /></Page>} />
         </Routes>
       </div>
       <Footer />

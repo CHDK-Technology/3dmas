@@ -32,20 +32,20 @@ const INDUSTRIES = [
 
 
 const COMPANY_LOGOS = [
-  '/img/ada.png',
-  '/img/alstom.png',
-  '/img/beml.png',
-  '/img/ge.png',
-  '/img/godrej.png',
-  '/img/hal.png',
-  '/img/isro.png',
-  '/img/kirloskar.png',
-  '/img/lmw.png',
-  '/img/lt.png',
-  '/img/mahindra.png',
-  '/img/reliance.png',
-  '/img/tatapower.png',
-  '/img/solar.png',
+  { src: '/img/ada.png',       name: 'ADA' },
+  { src: '/img/alstom.png',    name: 'Alstom' },
+  { src: '/img/beml.png',      name: 'BEML' },
+  { src: '/img/ge.png',        name: 'GE' },
+  { src: '/img/godrej.png',    name: 'Godrej' },
+  { src: '/img/hal.png',       name: 'HAL' },
+  { src: '/img/isro.png',      name: 'ISRO' },
+  { src: '/img/kirloskar.png', name: 'Kirloskar' },
+  { src: '/img/lmw.png',       name: 'LMW' },
+  { src: '/img/lt.png',        name: 'L&T' },
+  { src: '/img/mahindra.png',  name: 'Mahindra' },
+  { src: '/img/reliance.png',  name: 'Reliance' },
+  { src: '/img/tatapower.png', name: 'Tata Power' },
+  { src: '/img/solar.png',     name: 'Solar Industries' },
 ];
 export default function HomePage() {
   return (
@@ -65,9 +65,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease }}
           >
-            {/* <p>
-              3DMAS is a 3-dimensional measurement &amp; solution company - delivering on-site inspection, 3D laser scanning, reverse engineering and precision tooling across India since 2015.
-            </p> */}
+            <p>
+              On-site CMM inspection, 3D laser scanning, reverse engineering and precision tooling — ISO 9001:2015 certified, delivered across India since 2015.
+            </p>
           </motion.div>
 
           <motion.div
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="section" style={{ paddingTop: 20, paddingBottom: 80 }}>
                 <div className="wrap" style={{ marginTop:20 }}>
           <motion.div className="cw-video" {...fadeUp()}>
-            <Media type="video" ratio="16/9" src="/src/img/showreel.mp4" label="Showreel" />
+            <Media type="video" ratio="16/9" src="/img/showreel.mp4" label="Showreel" />
           </motion.div>
         </div>
         <div className="wrap">
@@ -112,8 +112,8 @@ export default function HomePage() {
       {COMPANY_LOGOS.map((logo, i) => (
         <div className="logo-marquee-item" key={i}>
           <img
-            src={logo}
-            alt={`Client ${i + 1}`}
+            src={logo.src}
+            alt={logo.name}
             loading="lazy"
           />
         </div>

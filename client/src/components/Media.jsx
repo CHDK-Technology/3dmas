@@ -7,10 +7,11 @@ import { Image as ImageIcon, Film } from 'lucide-react';
   Until you supply a real file, it shows a clean labeled placeholder telling
   you what belongs there. To go live, pass `src` (and `type="video"` for clips):
 
-    <Media type="image" ratio="16/9" src="/src/img/facility.jpg" label="Facility" />
-    <Media type="video" ratio="16/9" src="/src/img/process.mp4" poster="/src/img/process.jpg" />
+    <Media type="image" ratio="16/9" src="/img/facility.jpg" label="Facility" />
+    <Media type="video" ratio="16/9" src="/img/process.mp4" poster="/img/process.jpg" />
 
-  Drop files into client/src/img/ and reference them as '/src/img/<file>'.
+  Drop files into client/public/img/ and reference them as '/img/<file>'.
+  (Files under src/img only work in dev unless imported; public/ is served as-is.)
 */
 export default function Media({
   type = 'image',
