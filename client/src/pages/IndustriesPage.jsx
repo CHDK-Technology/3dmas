@@ -12,7 +12,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const INDUSTRIES = [
-  { n: '01', t: 'Aerospace & Defence', d: 'Composite lay-up molds and trimming fixtures for aircraft skin parts, layup tools, first-article inspection and laser-projected assembly guidance for brackets, ribs and stringers.' },
+  { n: '01', t: 'Aerospace & Defence',  d: 'Composite lay-up molds and trimming fixtures for aircraft skin parts, layup tools, first-article inspection and laser-projected assembly guidance for brackets, ribs and stringers.' },
   { n: '02', t: 'Power & Turbines',     d: 'Digital mapping and alignment for hydro, steam, gas, nuclear and wind turbine plants — including steam turbine digital mapping and generator stator key-bar setting.' },
   { n: '03', t: 'Steel & Heavy Plants', d: 'Steel mill laser alignment, catenary and shaft alignment, structural verification and large-scale measurement for heavy fabricated assemblies.' },
   { n: '04', t: 'Automotive',           d: 'Production line building, tooling and fixture inspection, body-panel scanning and dimensional reporting for OEMs and Tier-1 suppliers.' },

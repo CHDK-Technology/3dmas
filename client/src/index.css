@@ -551,8 +551,8 @@ button { font-family: var(--sans); cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 52px;
-  margin: 0 36px;
+  height: 56px;
+  margin: 0 44px;
   opacity: 1;
   transition: none;
 }
@@ -561,9 +561,9 @@ button { font-family: var(--sans); cursor: pointer; }
   opacity: 1;
 }
 .logo-marquee-item img {
-  height: 60px;
+  height: 38px;
   width: auto;
-  max-width: 160px;
+  max-width: 130px;
   object-fit: contain;
   display: block;
 }/* placeholder slot — swap for <img src="/img/clients/x.png" alt="Company" /> */
@@ -588,6 +588,7 @@ button { font-family: var(--sans); cursor: pointer; }
 @media (max-width: 560px) {
   .logo-marquee { padding: 20px 0; }
   .logo-marquee-item { height: 40px; margin: 0 24px; }
+  .logo-marquee-item img { height: 26px; }
   .logo-marquee-item--ph { min-width: 116px; padding: 0 18px; }
   .cw-video .media-frame { border-radius: 14px; }
 }

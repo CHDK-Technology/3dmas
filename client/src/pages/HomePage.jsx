@@ -60,17 +60,6 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-body-wrap">
           <motion.div
-            className="hero-intro"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease }}
-          >
-            <p>
-              On-site CMM inspection, 3D laser scanning, reverse engineering and precision tooling — ISO 9001:2015 certified, delivered across India since 2015.
-            </p>
-          </motion.div>
-
-          <motion.div
             className="hero-content"
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
