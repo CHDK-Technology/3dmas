@@ -304,8 +304,8 @@ button { font-family: var(--sans); cursor: pointer; }
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
   overflow: hidden;
   padding: 18px 0;
-  border-top: 1px solid rgba(255,255,255,.08);
-  background: linear-gradient(90deg, rgba(5,7,10,.55) 0%, rgba(5,7,10,.35) 50%, rgba(5,7,10,.55) 100%);
+  border-top: none;
+  background: none;
 }
 .hero-logos .logo-marquee-track {
   display: flex; align-items: center; width: max-content;
