@@ -586,10 +586,9 @@ button { font-family: var(--sans); cursor: pointer; }
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: transparent;
-  padding: 16px 0;
+  background: none;
+  padding: 40px 0;
   border: none;
-
   -webkit-mask-image: none;
   mask-image: none;
 }

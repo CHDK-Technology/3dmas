@@ -90,32 +90,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LOGO MARQUEE */}
-      <section className="section" style={{ paddingTop: 28, paddingBottom: 28 }}>
-        <div className="wrap">
-          {/* <p className="cw-marquee-label">Companies We Work With</p> */}
+      {/* LOGO MARQUEE — no background, logos float over the page */}
+      <div className="logo-marquee" aria-label="Companies we work with">
+        <div className="logo-marquee-track">
+          {[0, 1].map((set) => (
+            <div className="logo-marquee-set" key={set}>
+              {COMPANY_LOGOS.map((logo, i) => (
+                <div className="logo-marquee-item" key={i}>
+                  <img src={logo.src} alt={logo.name} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-
-        {/* Full-width logo marquee — replace .ph slots with <img> when real logos are ready */}
-        <div className="logo-marquee" aria-label="Companies we work with">
-<div className="logo-marquee-track">
-  {[0, 1].map((set) => (
-    <div className="logo-marquee-set" key={set}>
-      {COMPANY_LOGOS.map((logo, i) => (
-        <div className="logo-marquee-item" key={i}>
-          <img
-            src={logo.src}
-            alt={logo.name}
-            loading="lazy"
-          />
-        </div>
-      ))}
-    </div>
-  ))}
-</div>
-        </div>
-
-      </section>
+      </div>
 
       {/* STAT BAND */}
       <section className="section section--surface bg-grid" style={{ paddingTop: 48, paddingBottom: 72 }}>
