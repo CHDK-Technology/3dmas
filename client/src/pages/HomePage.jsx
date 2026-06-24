@@ -78,14 +78,6 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <div className="hero-meta">
-          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">Pune · Vadodara · Pan-India</span></div>
-          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">28,000 sq ft Facility</span></div>
-          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">124+ Engineers & Specialists</span></div>
-          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">Leica · FARO · GOM Systems</span></div>
-        </div>
-
-        <div className="hero-cue" aria-hidden="true"><span>Scroll</span><span className="hero-cue-line" /></div>
       </section>
 
       {/* SECOND SECTION — companies we work with (scrolling) + showreel */}
