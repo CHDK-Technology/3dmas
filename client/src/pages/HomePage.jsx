@@ -58,37 +58,40 @@ export default function HomePage() {
 
       {/* 1 - HERO */}
       <section className="hero">
-        {/* technical grid overlay */}
         <div className="hero-grid-overlay" aria-hidden="true" />
 
+        {/* top-left badge */}
+        <motion.div
+          className="hero-badge"
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease, delay: 0.2 }}
+        >
+          <span className="hero-badge-dot" />ISO 9001:2015 Certified
+        </motion.div>
+
+        {/* bottom-left title card */}
         <div className="hero-body-wrap">
           <motion.div
             className="hero-content"
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.12 }}
+            transition={{ duration: 0.65, ease, delay: 0.1 }}
           >
+            <div className="hero-eyebrow">Precision Metrology &amp; Manufacturing</div>
             <h1 className="hero-h1">
               Precision<br /><span className="acc">That Performs</span>
             </h1>
-            <div className="hero-actions" style={{ marginTop: 40 }}>
+            <div className="hero-actions">
               <Link to="/services" className="btn-primary">Explore Services <ArrowRight size={15} /></Link>
               <Link to="/contact" className="btn-outline-white">Contact Us</Link>
             </div>
           </motion.div>
         </div>
-
       </section>
 
-      {/* SECOND SECTION — companies we work with (scrolling) + showreel */}
-      
-
-      <section className="section" style={{ paddingTop: 20, paddingBottom: 24 }}>
-                <div className="wrap" style={{ marginTop:20 }}>
-          <motion.div className="cw-video" {...fadeUp()}>
-            <Media type="video" ratio="16/9" src="/img/showreel.mp4" label="Showreel" />
-          </motion.div>
-        </div>
+      {/* LOGO MARQUEE */}
+      <section className="section" style={{ paddingTop: 28, paddingBottom: 28 }}>
         <div className="wrap">
           {/* <p className="cw-marquee-label">Companies We Work With</p> */}
         </div>
