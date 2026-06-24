@@ -220,7 +220,7 @@ button { font-family: var(--sans); cursor: pointer; }
 .section-tag--light { color: rgba(255,255,255,.55); }
 .section-tag--light::before { background: rgba(255,255,255,.3); }
 
-.section-h { font-family: var(--display); font-size: clamp(36px,4vw,60px); font-weight: 800; line-height: .96; letter-spacing: -.015em; text-transform: uppercase; color: var(--navy); }
+.section-h { font-family: var(--display); font-size: clamp(38px,4.5vw,68px); font-weight: 900; line-height: .94; letter-spacing: -.02em; text-transform: uppercase; color: var(--navy); }
 .section-h--light { color: #fff; }
 .section-sub { font-size: 16px; line-height: 1.75; color: var(--muted); margin-top: 16px; max-width: 52ch; }
 .section-sub--light { color: rgba(255,255,255,.55); }
@@ -338,12 +338,13 @@ button { font-family: var(--sans); cursor: pointer; }
 }
 .cap-card:hover::after { transform: scaleX(1); }
 .cap-icon {
-  width: 40px; height: 40px; border-radius: 3px;
-  background: var(--blue-light); color: var(--blue);
+  width: 44px; height: 44px; border-radius: 3px;
+  background: var(--orange-light); color: var(--orange);
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255,106,0,.2);
 }
-.cap-card h3 { font-family: var(--display); font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; letter-spacing: -.01em; text-transform: uppercase; }
+.cap-card h3 { font-family: var(--display); font-size: 21px; font-weight: 800; color: var(--navy); margin-bottom: 12px; letter-spacing: -.01em; text-transform: uppercase; }
 .cap-card p { font-size: 14px; line-height: 1.7; color: var(--muted); }
 .cap-card-link {
   display: inline-flex; align-items: center; gap: 6px;
@@ -670,9 +671,9 @@ button { font-family: var(--sans); cursor: pointer; }
 }
 .stat-cell { padding: 40px 30px; border-right: 1px solid var(--border); }
 .stat-cell:last-child { border-right: none; }
-.stat-num { font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; color: #fff; letter-spacing: -.02em; line-height: 1; }
-.stat-num .u { font-size: 15px; color: var(--blue); margin-left: 6px; font-weight: 700; letter-spacing: 0; }
-.stat-lbl { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.stat-num { font-family: var(--display); font-size: clamp(38px, 4.2vw, 60px); font-weight: 900; color: #fff; letter-spacing: -.02em; line-height: 1; }
+.stat-num .u { font-size: 16px; color: var(--blue); margin-left: 6px; font-weight: 700; letter-spacing: 0; }
+.stat-lbl { margin-top: 14px; font-size: 13px; color: var(--muted); line-height: 1.5; }
 @media (max-width: 840px) {
   .statband { grid-template-columns: repeat(2, 1fr); }
   .stat-cell:nth-child(2n) { border-right: none; }
@@ -957,10 +958,6 @@ button { font-family: var(--sans); cursor: pointer; }
   box-shadow: 0 24px 50px -24px rgba(0,0,0,.9), -4px 0 20px -8px rgba(0,224,255,.2);
 }
 
-/* Stat numbers use Barlow */
-.stat-num {
-  font-family: var(--display);
-}
 
 /* Hero meta items glow dot */
 .hero-meta-item-dot {
@@ -1006,8 +1003,6 @@ button { font-family: var(--sans); cursor: pointer; }
 /* Process step number glow */
 .process-n { text-shadow: 0 0 12px rgba(28,176,236,.3); }
 
-/* Stat band numbers */
-.stat-num { color: #fff; }
 
 /* Hero H1 line — accent word gets slightly different tracking */
 .hero-h1 .acc { letter-spacing: -.03em; }
