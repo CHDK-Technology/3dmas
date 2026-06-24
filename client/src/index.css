@@ -257,16 +257,16 @@ button { font-family: var(--sans); cursor: pointer; }
   content: ''; position: absolute; inset: 0; z-index: 0;
   background-image: var(--hero-img);
   background-size: cover; background-position: center 30%;
-  opacity: .80;
+  opacity: 1;
 }
-/* dark readability veil — brightest at top, darker at bottom for text legibility */
+/* dark readability veil — light overlay so image stays vivid, darker only at bottom for text */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(180deg,
-    rgba(5,7,10,.05) 0%,
-    rgba(5,7,10,.20) 40%,
-    rgba(5,7,10,.78) 80%,
-    rgba(5,7,10,.92) 100%
+    rgba(5,7,10,.18) 0%,
+    rgba(5,7,10,.22) 40%,
+    rgba(5,7,10,.60) 72%,
+    rgba(5,7,10,.82) 100%
   );
 }
 /* ISO badge — top left */
