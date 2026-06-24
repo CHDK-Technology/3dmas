@@ -299,12 +299,36 @@ button { font-family: var(--sans); cursor: pointer; }
   content: ''; display: block; width: 32px; height: 2px; background: var(--orange);
 }
 
+/* logos row pinned to bottom of hero, no background */
+.hero-logos {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(90deg, rgba(5,7,10,.55) 0%, rgba(5,7,10,.35) 50%, rgba(5,7,10,.55) 100%);
+}
+.hero-logos .logo-marquee-track {
+  display: flex; align-items: center; width: max-content;
+  animation: logo-scroll 34s linear infinite;
+}
+.hero-logos .logo-marquee-set { display: flex; align-items: center; }
+.hero-logos .logo-marquee-item {
+  flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+  height: 44px; margin: 0 36px;
+}
+.hero-logos .logo-marquee-item img {
+  height: 28px; width: auto; max-width: 110px;
+  object-fit: contain; opacity: .7; filter: brightness(0) invert(1);
+  transition: opacity .2s;
+}
+.hero-logos .logo-marquee-item img:hover { opacity: 1; }
+
 /* bottom-left title card */
 .hero-body-wrap {
   position: relative; z-index: 1;
   flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
   max-width: 1280px; margin: 0 auto; width: 100%;
-  padding: 0 60px 72px;
+  padding: 0 60px 96px;
 }
 .hero-content {}
 .hero-intro { max-width: 48ch; }

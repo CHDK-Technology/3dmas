@@ -88,22 +88,22 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* LOGO MARQUEE — no background, logos float over the page */}
-      <div className="logo-marquee" aria-label="Companies we work with">
-        <div className="logo-marquee-track">
-          {[0, 1].map((set) => (
-            <div className="logo-marquee-set" key={set}>
-              {COMPANY_LOGOS.map((logo, i) => (
-                <div className="logo-marquee-item" key={i}>
-                  <img src={logo.src} alt={logo.name} loading="lazy" />
-                </div>
-              ))}
-            </div>
-          ))}
+        {/* logos scroll inside hero — float over the photo, no strip */}
+        <div className="hero-logos" aria-label="Companies we work with">
+          <div className="logo-marquee-track">
+            {[0, 1].map((set) => (
+              <div className="logo-marquee-set" key={set}>
+                {COMPANY_LOGOS.map((logo, i) => (
+                  <div className="logo-marquee-item" key={i}>
+                    <img src={logo.src} alt={logo.name} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* STAT BAND */}
       <section className="section section--surface bg-grid" style={{ paddingTop: 48, paddingBottom: 72 }}>
