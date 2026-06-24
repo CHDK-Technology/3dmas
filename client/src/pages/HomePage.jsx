@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers, ArrowRight } from 'lucide-react';
+import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers, ArrowRight, MapPin, Building2, Users, Cpu } from 'lucide-react';
 import Seo from '../components/Seo.jsx';
 import Media from '../components/Media.jsx';
 import Counter from '../components/Counter.jsx';
@@ -58,6 +58,9 @@ export default function HomePage() {
 
       {/* 1 - HERO */}
       <section className="hero">
+        {/* technical grid overlay */}
+        <div className="hero-grid-overlay" aria-hidden="true" />
+
         <div className="hero-body-wrap">
           <motion.div
             className="hero-content"
@@ -65,19 +68,29 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.12 }}
           >
+            <p className="hero-tag">ISO 9001:2015 Certified · Est. 2015</p>
             <h1 className="hero-h1">
-              Precision<br /> <span className="acc">That Performs</span>
+              Precision<br /><span className="acc">That Performs</span>
             </h1>
+            <p className="hero-desc">
+              India's precision metrology partner — on-site CMM inspection, 3D laser scanning,
+              reverse engineering and composite tooling for aerospace, power, steel and automotive.
+            </p>
             <div className="hero-actions">
-              <Link to="/services" className="btn-primary">Explore Services</Link>
+              <Link to="/services" className="btn-primary">Explore Services <ArrowRight size={15} /></Link>
               <Link to="/contact" className="btn-outline-white">Contact Us</Link>
             </div>
           </motion.div>
         </div>
 
+        <div className="hero-meta">
+          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">Pune · Vadodara · Pan-India</span></div>
+          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">28,000 sq ft Facility</span></div>
+          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">124+ Engineers & Specialists</span></div>
+          <div className="hero-meta-item"><span className="hero-meta-item-dot" /><span className="hero-meta-text">Leica · FARO · GOM Systems</span></div>
+        </div>
 
-
-
+        <div className="hero-cue" aria-hidden="true"><span>Scroll</span><span className="hero-cue-line" /></div>
       </section>
 
       {/* SECOND SECTION — companies we work with (scrolling) + showreel */}

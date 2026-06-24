@@ -33,6 +33,7 @@
   --hero-img: url('/img/hero.png');
 
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --display: 'Barlow', 'Inter', -apple-system, sans-serif;
 }
 
 /* ──────────────── RESET ──────────────── */
@@ -208,7 +209,7 @@ button { font-family: var(--sans); cursor: pointer; }
 .section-tag--light { color: rgba(255,255,255,.55); }
 .section-tag--light::before { background: rgba(255,255,255,.3); }
 
-.section-h { font-size: clamp(28px,3.2vw,44px); font-weight: 700; line-height: 1.15; letter-spacing: -.025em; color: var(--navy); }
+.section-h { font-family: var(--display); font-size: clamp(30px,3.2vw,46px); font-weight: 800; line-height: 1.12; letter-spacing: -.03em; color: var(--navy); }
 .section-h--light { color: #fff; }
 .section-sub { font-size: 16px; line-height: 1.75; color: var(--muted); margin-top: 16px; max-width: 52ch; }
 .section-sub--light { color: rgba(255,255,255,.55); }
@@ -235,10 +236,10 @@ button { font-family: var(--sans); cursor: pointer; }
   padding-top: 72px; min-height: 100vh;
   display: flex; flex-direction: column;
   border-bottom: 1px solid var(--border);
-  /* background:
-    radial-gradient(1100px 520px at 82% 16%, rgba(0,168,228,.13), transparent 60%),
-    radial-gradient(820px 480px at 6% 94%, rgba(240,120,24,.13), transparent 60%),
-    linear-gradient(180deg, #0a0d12 0%, #0b0f15 100%); */
+  background:
+    radial-gradient(1100px 520px at 82% 16%, rgba(0,168,228,.10), transparent 60%),
+    radial-gradient(820px 480px at 6% 94%, rgba(240,120,24,.10), transparent 60%),
+    linear-gradient(180deg, #080a0f 0%, #0b0f15 100%);
 }
 /* optional photo layer (set --hero-img to enable) */
 .hero::before {
@@ -250,7 +251,7 @@ button { font-family: var(--sans); cursor: pointer; }
 /* readability veil over any photo */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 0;
-  /* background: linear-gradient(180deg, rgba(8,10,14,.45) 0%, rgba(8,10,14,.80) 100%); */
+  background: linear-gradient(180deg, rgba(8,10,14,.55) 0%, rgba(8,10,14,.88) 100%);
 }
 .hero-body-wrap {
   position: relative; z-index: 1;
@@ -269,11 +270,15 @@ button { font-family: var(--sans); cursor: pointer; }
 .hero-tag::before { content: ''; width: 20px; height: 2px; background: var(--blue); }
 .hero-intro p { font-size: 17px; line-height: 1.75; color: var(--text); }
 .hero-h1 {
-  font-size: clamp(44px, 9vw, 118px); font-weight: 800;
-  line-height: .95; letter-spacing: -.02em; text-transform: uppercase;
+  font-family: var(--display);
+  font-size: clamp(48px, 9.5vw, 124px); font-weight: 900;
+  line-height: .92; letter-spacing: -.02em; text-transform: uppercase;
   color: #fff; margin: 0;
 }
-.hero-h1 .acc { color: var(--blue); }
+.hero-h1 .acc {
+  color: var(--blue);
+  text-shadow: 0 0 60px rgba(0,168,228,.45), 0 0 120px rgba(0,168,228,.18);
+}
 .hero-desc { font-size: 16.5px; line-height: 1.75; color: var(--muted); max-width: 48ch; margin-bottom: 36px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 .hero-visual {}
@@ -427,7 +432,7 @@ button { font-family: var(--sans); cursor: pointer; }
 
 /* ──────────────── CTA (on panel) ──────────────── */
 .cta-inner { max-width: 640px; }
-.cta-inner h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 700; color: #fff; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 16px; }
+.cta-inner h2 { font-family: var(--display); font-size: clamp(28px, 3vw, 44px); font-weight: 800; color: #fff; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 16px; }
 .cta-inner p { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 36px; }
 .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -534,14 +539,16 @@ button { font-family: var(--sans); cursor: pointer; }
   width: 100%;
   overflow: hidden;
   background: transparent;
-  padding: 30px 0;
+  padding: 16px 0;
   border: none;
 
   -webkit-mask-image: none;
   mask-image: none;
 }
 .logo-marquee-track {
-  display: flex; width: max-content;
+  display: flex;
+  align-items: center;
+  width: max-content;
   animation: logo-scroll 34s linear infinite;
 }
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
@@ -586,7 +593,7 @@ button { font-family: var(--sans); cursor: pointer; }
 }
 
 @media (max-width: 560px) {
-  .logo-marquee { padding: 20px 0; }
+  .logo-marquee { padding: 12px 0; }
   .logo-marquee-item { height: 40px; margin: 0 24px; }
   .logo-marquee-item img { height: 26px; }
   .logo-marquee-item--ph { min-width: 116px; padding: 0 18px; }
@@ -667,3 +674,94 @@ button { font-family: var(--sans); cursor: pointer; }
 
 /* Section heading accent kicker line already via section-tag; tighten rhythm on mobile */
 @media (max-width: 560px) { .section { padding: 64px 0; } }
+
+/* ══════════════ INDUSTRIAL POLISH ══════════════ */
+
+/* CTA button glow */
+.btn-primary {
+  box-shadow: 0 0 0 0 rgba(245,132,31,0);
+  transition: background .15s, box-shadow .25s;
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 28px -6px rgba(245,132,31,.55);
+}
+
+/* Section-tag glow */
+.section-tag {
+  text-shadow: 0 0 18px rgba(28,176,236,.4);
+}
+
+/* Hero tag uses Barlow */
+.hero-tag {
+  font-family: var(--display);
+}
+
+/* Hero desc slightly lighter */
+.hero-desc {
+  color: rgba(174,185,197,.85);
+}
+
+/* Cap-card: left glow stripe + stronger hover */
+.cap-card {
+  border-left: 2px solid transparent;
+  transition: background .15s, transform .25s ease, border-color .25s, box-shadow .25s;
+}
+.cap-card:hover {
+  border-left-color: var(--blue);
+  box-shadow: 0 24px 50px -24px rgba(0,0,0,.9), -4px 0 20px -8px rgba(0,168,228,.25);
+}
+
+/* Stat numbers use Barlow */
+.stat-num {
+  font-family: var(--display);
+}
+
+/* Hero meta items glow dot */
+.hero-meta-item-dot {
+  box-shadow: 0 0 6px 1px rgba(28,176,236,.7);
+}
+
+/* Stronger bg-grid (hero needs it to show through background image) */
+.hero.bg-grid::before {
+  /* bg-grid rendered as separate pseudo — hero::before is already the photo */
+}
+.hero-grid-overlay {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Corner bracket decoration on cap-cards */
+.cap-card { position: relative; overflow: hidden; }
+.cap-card::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 28px; height: 28px;
+  border-top: 1.5px solid var(--border-2);
+  border-right: 1.5px solid var(--border-2);
+  transition: border-color .25s, width .25s, height .25s;
+}
+.cap-card:hover::before {
+  border-color: var(--blue);
+  width: 40px; height: 40px;
+}
+
+/* Section divider accent line */
+.section--border-top { border-top: 1px solid var(--border); position: relative; }
+.section--border-top::before {
+  content: '';
+  position: absolute; top: -1px; left: 0;
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+}
+
+/* Process step number glow */
+.process-n { text-shadow: 0 0 12px rgba(28,176,236,.3); }
+
+/* Stat band numbers */
+.stat-num { color: #fff; }
+
+/* Hero H1 line — accent word gets slightly different tracking */
+.hero-h1 .acc { letter-spacing: -.03em; }
