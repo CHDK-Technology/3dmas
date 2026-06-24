@@ -68,15 +68,10 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.12 }}
           >
-            <p className="hero-tag">ISO 9001:2015 Certified · Est. 2015</p>
             <h1 className="hero-h1">
               Precision<br /><span className="acc">That Performs</span>
             </h1>
-            <p className="hero-desc">
-              India's precision metrology partner — on-site CMM inspection, 3D laser scanning,
-              reverse engineering and composite tooling for aerospace, power, steel and automotive.
-            </p>
-            <div className="hero-actions">
+            <div className="hero-actions" style={{ marginTop: 40 }}>
               <Link to="/services" className="btn-primary">Explore Services <ArrowRight size={15} /></Link>
               <Link to="/contact" className="btn-outline-white">Contact Us</Link>
             </div>

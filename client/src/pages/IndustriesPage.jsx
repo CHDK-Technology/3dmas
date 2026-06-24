@@ -1,126 +1,135 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Media from '../components/Media.jsx';
 import Seo from '../components/Seo.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.5, ease, delay },
+  transition: { duration: 0.55, ease, delay },
 });
 
 const INDUSTRIES = [
-  { n: '01', t: 'Aerospace & Defence',  d: 'Composite lay-up molds and trimming fixtures for aircraft skin parts, layup tools, first-article inspection and laser-projected assembly guidance for brackets, ribs and stringers.' },
-  { n: '02', t: 'Power & Turbines',     d: 'Digital mapping and alignment for hydro, steam, gas, nuclear and wind turbine plants — including steam turbine digital mapping and generator stator key-bar setting.' },
-  { n: '03', t: 'Steel & Heavy Plants', d: 'Steel mill laser alignment, catenary and shaft alignment, structural verification and large-scale measurement for heavy fabricated assemblies.' },
-  { n: '04', t: 'Automotive',           d: 'Production line building, tooling and fixture inspection, body-panel scanning and dimensional reporting for OEMs and Tier-1 suppliers.' },
-  { n: '05', t: 'Railway & Marine',     d: 'Railway construction, shipbuilding and marine fabrication measurement, road construction surveys and floor layouts for production lines and robotic stations.' },
+  {
+    n: '01',
+    t: 'Aerospace & Defence',
+    accent: 'Aerospace',
+    d: 'Composite lay-up molds and trimming fixtures for aircraft skin parts, first-article inspection and laser-projected assembly guidance for brackets, ribs and stringers.',
+    apps: ['Composite lay-up mold design & manufacture', 'First-article & lot inspection', 'Laser-projected assembly guidance', 'Dimensional verification of structures'],
+  },
+  {
+    n: '02',
+    t: 'Power & Turbines',
+    accent: 'Power',
+    d: 'Digital mapping and precision alignment for hydro, steam, gas, nuclear and wind turbine plants — including generator stator key-bar setting.',
+    apps: ['Steam turbine digital mapping', 'Generator stator key-bar setting', 'Turbine blade & casing inspection', 'On-site alignment during planned outages'],
+  },
+  {
+    n: '03',
+    t: 'Steel & Heavy Plants',
+    accent: 'Steel',
+    d: 'Steel mill laser alignment, catenary and shaft alignment, structural verification and large-scale measurement for heavy fabricated assemblies.',
+    apps: ['Rolling mill stand & roll alignment', 'Catenary & shaft alignment', 'Large-structure dimensional verification', 'Continuous-line laser alignment'],
+  },
+  {
+    n: '04',
+    t: 'Automotive',
+    accent: 'Automotive',
+    d: 'Production line building, tooling and fixture inspection, body-panel scanning and dimensional reporting for OEMs and Tier-1 suppliers.',
+    apps: ['Production line building', 'Fixture & jig inspection', 'Body-panel & component scanning', 'CAD comparison & deviation analysis'],
+  },
+  {
+    n: '05',
+    t: 'Railway & Marine',
+    accent: 'Railway',
+    d: 'Railway construction, shipbuilding and marine fabrication measurement, road construction surveys and floor layouts for production lines.',
+    apps: ['Railway track & structure measurement', 'Marine & shipbuilding fabrication', 'Road construction surveys', 'Robotic station floor layouts'],
+  },
+  {
+    n: '06',
+    t: 'Infrastructure & Bridges',
+    accent: 'Infrastructure',
+    d: 'Long-range 3D scanning of bridges and large civil structures using the Leica P50, followed by registration, modelling and volume calculation.',
+    apps: ['Bridge scanning up to 2.5 km', 'Long-range scan with Leica P50', 'Stockpile volume calculation', 'As-built documentation'],
+  },
 ];
-
-const PORTABLE_CMM = [
-  'On-site inspection of gauges, fixtures, jigs and fabricated structures',
-  'Fixture and jig setting per CAD model and drawing, with validation and calibration',
-  'Inspection of casting parts, machined parts and moulds',
-  'First-article inspection and lot inspection',
-  'Reverse engineering and 3D modelling of plastic parts, castings, dies and gauges',
-  'CAD model comparison with probing and scanning',
-];
-
-const LASER_TRACKER = [
-  'Automobile line building and heavy equipment fabrication',
-  'Railway construction, shipbuilding and marine construction',
-  'Aerospace structures and assemblies',
-  'Wind, hydro, steam and gas turbines, and steel mills',
-  'Road construction and floor layout of production lines and robotic stations',
-  'Steam turbine digital mapping and generator stator key-bar setting',
-  'Steel mill, printing machine and paper mill alignment',
-  'Various large-size measurements and validations',
-];
-
-function AppList({ title, items }) {
-  return (
-    <div>
-      <div className="sol-item-n">{title}</div>
-      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, marginTop: 4 }}>
-        {items.map((it, i) => (
-          <li key={i} style={{ display: 'flex', gap: 12, fontSize: 14.5, color: 'var(--muted)', lineHeight: 1.65 }}>
-            <span style={{ color: 'var(--blue)', fontWeight: 700, flexShrink: 0 }}>→</span>
-            <span>{it}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function IndustriesPage() {
   return (
-    <main style={{ paddingTop: 64 }}>
+    <main>
       <Seo
         title="Industries We Serve"
-        description="3DMAS delivers precision metrology and tooling to aerospace, automotive, power generation, steel and infrastructure sectors across India."
+        description="3DMAS delivers precision metrology and tooling to aerospace, power, steel, automotive, railway and infrastructure sectors across India."
         path="/industries"
       />
 
-      {/* HEADER + INDUSTRIES */}
+      {/* ── PAGE HERO ── */}
+      <section className="ind-hero">
+        <div className="hero-grid-overlay" aria-hidden="true" />
+        <div className="wrap ind-hero-inner">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease, delay: 0.1 }}
+          >
+            <p className="section-tag">Industries</p>
+            <h1 className="ind-hero-h1">
+              Industries<br /><span className="acc">We Serve</span>
+            </h1>
+          </motion.div>
+          <motion.p
+            className="ind-hero-sub"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease, delay: 0.28 }}
+          >
+            Precision measurement, scanning and tooling tailored to the tolerances and demands of each sector.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── INDUSTRIES GRID ── */}
       <section className="section">
         <div className="wrap">
-          <div className="section-head section-head--wide">
-            <motion.div {...fadeUp()}>
-              <p className="section-tag">Industries</p>
-              <h2 className="section-h">Serving precision-critical<br />industries across India.</h2>
-              <p className="section-sub">
-                3DMAS supports aerospace, power, steel, automotive, railway and marine sectors with measurement, scanning, reverse engineering and tooling tailored to each industry's tolerances.
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div className="ind-list" {...fadeUp(0.05)}>
+          <motion.div
+            className="ind-cards"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
+          >
             {INDUSTRIES.map((ind) => (
-              <div className="ind-item" key={ind.n}>
-                <div className="ind-n">{ind.n}</div>
-                <div className="ind-t">{ind.t}</div>
-                <p className="ind-d">{ind.d}</p>
-              </div>
+              <motion.div
+                key={ind.n}
+                className="ind-card"
+                variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+              >
+                <div className="ind-card-num">{ind.n}</div>
+                <div className="ind-card-body">
+                  <h2 className="ind-card-title">{ind.t}</h2>
+                  <p className="ind-card-desc">{ind.d}</p>
+                  <ul className="ind-card-apps">
+                    {ind.apps.map((a, i) => (
+                      <li key={i}>
+                        <span className="ind-card-dot" />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
-
-          <div style={{ marginTop: 56 }}>
-            <Media type="image" ratio="21/9" label="On-Site Across Industries"
-              note="Field work at a power plant, steel mill, aerospace shop or automotive line." />
-          </div>
         </div>
       </section>
 
-      {/* APPLICATIONS */}
-      <section className="section section--surface section--border-top">
-        <div className="wrap">
-          <div className="section-head">
-            <motion.div {...fadeUp()}>
-              <p className="section-tag">Applications</p>
-              <h2 className="section-h">Where our equipment goes to work.</h2>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="sol-item"
-            style={{ borderTop: 'none', paddingTop: 0 }}
-            {...fadeUp(0.05)}
-          >
-            <AppList title="Portable CMM — FARO & ROMER Arms" items={PORTABLE_CMM} />
-            <AppList title="Laser Tracker Applications" items={LASER_TRACKER} />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section className="section section--navy">
         <div className="wrap">
           <motion.div className="cta-inner" {...fadeUp()}>
             <h2>Have a measurement challenge in your industry?</h2>
-            <p>Our engineers have delivered measurement and tooling programmes across aerospace, power, steel and automotive. Tell us about yours.</p>
+            <p>Our engineers have delivered programmes across aerospace, power, steel and automotive. Tell us about yours.</p>
             <div className="cta-actions">
               <Link to="/contact" className="btn-primary">Contact Our Team</Link>
               <Link to="/projects" className="btn-outline-white">View Projects</Link>
