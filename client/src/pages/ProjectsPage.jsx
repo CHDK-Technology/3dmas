@@ -20,8 +20,8 @@ const PROJECTS = [
   { tag: 'Steel',          img: '/img/proj-steel-mill.jpg',       t: 'Steel Mill Laser Alignment',           d: 'Precision laser alignment of steel mill stands and rolls, including catenary and shaft alignment for continuous lines.' },
   { tag: 'Process',        img: '/img/proj-shaft-alignment.jpg',  t: 'Cement, Printing & Paper Mill Alignment', d: 'Multi-coupling shaft alignment and live-move correction for cement mills, printing machines and paper mills.' },
   { tag: 'Infrastructure', img: '/img/proj-bridge-scan.jpg',      t: '2.5 km Bridge Scan — Leica P50',       d: 'Long-range 3D scanning of a 2.5 km bridge with the Leica P50 (1 km range) scanner, followed by registration and modelling.' },
-  { tag: 'Scanning',       img: null,                             t: 'Volume Calculation from Scan Data',    d: 'Scan-to-mesh workflows for stockpile and component volume calculation, delivering accurate volumetric reports from point-cloud data.' },
-  { tag: 'Reverse Eng.',   img: null,                             t: 'Scan-to-CAD Reconstruction',          d: 'Reverse engineering of castings, dies, moulds and legacy components into production-intent CAD using blue-light and laser scanning.' },
+  { tag: 'Scanning',       img: '/img/proj-volume-calc.jpg',      t: 'Volume Calculation from Scan Data',    d: 'Scan-to-mesh workflows for stockpile and component volume calculation, delivering accurate volumetric reports from point-cloud data.' },
+  { tag: 'Reverse Eng.',   img: '/img/proj-scan-to-cad.jpg',     t: 'Scan-to-CAD Reconstruction',          d: 'Reverse engineering of castings, dies, moulds and legacy components into production-intent CAD using blue-light and laser scanning.' },
 ];
 
 const STATS = [

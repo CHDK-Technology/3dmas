@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers } from 'lucide-react';
 import Seo from '../components/Seo.jsx';
-import Media from '../components/Media.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -97,9 +96,8 @@ export default function ServicesPage() {
             </motion.div>
           </div>
 
-          <div style={{ marginBottom: 48 }}>
-            <Media type="image" ratio="21/9" label="Metrology in Action"
-              note="Engineer operating a laser tracker / scanning a component on-site." />
+          <div style={{ marginBottom: 48, borderRadius: 8, overflow: 'hidden', height: 420 }}>
+            <img src="/img/work-scan.jpg" alt="Engineer 3D scanning on-site" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           <motion.div className="cap-grid" {...fadeUp(0.05)}>
@@ -108,6 +106,19 @@ export default function ServicesPage() {
                 <div className="cap-icon">{s.icon}</div>
                 <h3>{s.t}</h3>
                 <p>{s.d}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div className="photo-strip" {...fadeUp(0.08)} style={{ marginTop: 48 }}>
+            {[
+              { src: '/img/service-scanning.png', alt: 'On-site 3D scanning' },
+              { src: '/img/proj-steam-turbine.jpg', alt: 'Steam turbine laser mapping' },
+              { src: '/img/proj-steel-mill.jpg', alt: 'Steel mill alignment' },
+              { src: '/img/proj-npd-tools.jpg', alt: 'Aerospace curing tool' },
+            ].map((p, i) => (
+              <div key={i} className="photo-strip-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
               </div>
             ))}
           </motion.div>
@@ -139,6 +150,9 @@ export default function ServicesPage() {
               <h2 className="section-h">In-house machining capacity.</h2>
             </motion.div>
           </div>
+          <motion.div style={{ borderRadius: 8, overflow: 'hidden', height: 300, marginBottom: 40 }} {...fadeUp(0.03)}>
+            <img src="/img/equip-vmc.jpg" alt="Jyoti NX4222 Double-Column VMC" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </motion.div>
           <motion.div className="cap-grid" {...fadeUp(0.05)}>
             {MANUFACTURING_EQUIPMENT.map((e, i) => <EquipCard key={i} {...e} />)}
           </motion.div>

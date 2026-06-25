@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Microscope, Wrench, Ruler, ScanLine } from 'lucide-react';
 import Seo from '../components/Seo.jsx';
 import Counter from '../components/Counter.jsx';
-import Media from '../components/Media.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -65,9 +64,8 @@ export default function AboutPage() {
             ))}
           </motion.div>
 
-          <div style={{ marginTop: 56 }}>
-            <Media type="image" ratio="21/9" label="Facility / Shop Floor"
-              note="Wide shot of the 28,000 sq ft facility — machining bay, bridge cranes or metrology lab." />
+          <div style={{ marginTop: 56, borderRadius: 8, overflow: 'hidden', height: 420 }}>
+            <img src="/img/facility-workshop.png" alt="3DMAS workshop floor" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>
@@ -111,6 +109,34 @@ export default function AboutPage() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* PHOTO GALLERY */}
+      <section className="section section--border-top">
+        <div className="wrap">
+          <div className="section-head">
+            <motion.div {...fadeUp()}>
+              <p className="section-tag">Our Work</p>
+              <h2 className="section-h">Precision manufacturing and metrology, in action.</h2>
+            </motion.div>
+          </div>
+          <motion.div className="photo-strip" {...fadeUp(0.05)}>
+            {[
+              { src: '/img/services-1.jpg',       alt: 'Aerospace fixture frames in workshop' },
+              { src: '/img/work-mold.jpg',         alt: 'Machined aluminium lay-up mold' },
+              { src: '/img/work-fixture.jpg',      alt: 'Steel jig frames on shop floor' },
+              { src: '/img/work-mold2.jpg',        alt: 'Polished machined tool component' },
+              { src: '/img/services-3.jpg',        alt: 'Assembly jigs in production bay' },
+              { src: '/img/work-composite.jpg',    alt: 'Composite mold parts' },
+              { src: '/img/services-2.jpg',        alt: 'Large structural fixture' },
+              { src: '/img/team-exhibition.jpg',   alt: '3DMAS team at industry exhibition' },
+            ].map((p, i) => (
+              <div key={i} className="photo-strip-item">
+                <img src={p.src} alt={p.alt} loading="lazy" />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
