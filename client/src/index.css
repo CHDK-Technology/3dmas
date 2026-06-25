@@ -362,12 +362,18 @@ button { font-family: var(--sans); cursor: pointer; }
 .hero-meta-text { font-size: 13px; color: var(--muted); }
 
 @media (max-width: 900px) {
-  .hero-body-wrap { padding: 0 32px 56px; }
+  .hero-body-wrap { padding: 0 32px 80px; }
   .hero-badge { left: 32px; top: 88px; }
+  .hero-logos { padding: 14px 0; }
+  .hero-logos .logo-marquee-item { height: 36px; margin: 0 24px; }
+  .hero-logos .logo-marquee-item img { height: 22px; max-width: 88px; }
 }
 @media (max-width: 560px) {
-  .hero-body-wrap { padding: 0 20px 48px; }
+  .hero-body-wrap { padding: 0 20px 72px; }
   .hero-badge { left: 20px; top: 82px; font-size: 10px; }
+  .hero-logos { padding: 12px 0; }
+  .hero-logos .logo-marquee-item { height: 30px; margin: 0 18px; }
+  .hero-logos .logo-marquee-item img { height: 18px; max-width: 72px; }
 }
 
 /* ──────────────── CAPABILITIES GRID ──────────────── */
