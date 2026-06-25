@@ -60,16 +60,6 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-grid-overlay" aria-hidden="true" />
 
-        {/* top-left badge */}
-        <motion.div
-          className="hero-badge"
-          initial={{ opacity: 0, x: -16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0.2 }}
-        >
-          <span className="hero-badge-dot" />ISO 9001:2015 Certified
-        </motion.div>
-
         {/* bottom-left title card */}
         <div className="hero-body-wrap">
           <motion.div
