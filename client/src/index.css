@@ -717,13 +717,6 @@ button { font-family: var(--sans); cursor: pointer; }
 .cap-card:hover { box-shadow: 0 24px 50px -32px rgba(0,0,0,.85); }
 .proj-card:hover { box-shadow: 0 26px 60px -34px rgba(0,0,0,.9); }
 
-/* Faint blueprint grid texture (apply with className="bg-grid") */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 46px 46px;
-}
 
 /* Homepage stat band */
 .statband {
@@ -1026,17 +1019,6 @@ button { font-family: var(--sans); cursor: pointer; }
   box-shadow: 0 0 6px 1px rgba(0,224,255,.7);
 }
 
-/* Stronger bg-grid (hero needs it to show through background image) */
-.hero.bg-grid::before {
-  /* bg-grid rendered as separate pseudo — hero::before is already the photo */
-}
-.hero-grid-overlay {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
 
 /* Corner bracket decoration on cap-cards */
 .cap-card { position: relative; overflow: hidden; }
