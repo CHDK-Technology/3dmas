@@ -42,7 +42,6 @@ export default function ProjectsPage() {
 
       {/* ── PAGE HERO ── */}
       <section className="ind-hero">
-        <BlobBg />
         <div className="wrap ind-hero-inner">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

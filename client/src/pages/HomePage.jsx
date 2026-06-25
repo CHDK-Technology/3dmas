@@ -59,7 +59,6 @@ export default function HomePage() {
 
       {/* 1 - HERO */}
       <section className="hero">
-        <BlobBg variant="hero" />
 
         {/* bottom-left title card */}
         <div className="hero-body-wrap">

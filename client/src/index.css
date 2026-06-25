@@ -299,7 +299,7 @@ button { font-family: var(--sans); cursor: pointer; }
   content: ''; display: block; width: 32px; height: 2px; background: var(--orange);
 }
 
-/* ── BLOB BACKGROUND — corner edge glow (option D) ── */
+/* ── BLOB BACKGROUND — ambient corner glow ── */
 .blob-bg {
   position: absolute; inset: 0; z-index: 0;
   overflow: hidden; pointer-events: none;
@@ -309,54 +309,58 @@ button { font-family: var(--sans); cursor: pointer; }
   border-radius: 50%;
   will-change: transform;
 }
-/* top-left cyan */
+/* top-left — deep teal */
 .blob--tl-cyan {
-  width: 320px; height: 320px;
-  background: rgba(0,224,255,.28);
-  top: -8%; left: -6%;
-  filter: blur(80px);
-  animation: blob-tl 12s ease-in-out infinite;
+  width: 55vw; height: 55vw;
+  max-width: 600px; max-height: 600px;
+  background: rgba(0,160,200,.10);
+  top: -20%; left: -15%;
+  filter: blur(110px);
+  animation: blob-tl 14s ease-in-out infinite;
 }
-/* top-right orange */
+/* top-right — warm amber */
 .blob--tr-orange {
-  width: 300px; height: 300px;
-  background: rgba(255,106,0,.30);
-  top: -8%; right: -6%;
-  filter: blur(75px);
-  animation: blob-tr 14s ease-in-out infinite;
+  width: 50vw; height: 50vw;
+  max-width: 560px; max-height: 560px;
+  background: rgba(220,80,0,.10);
+  top: -18%; right: -14%;
+  filter: blur(110px);
+  animation: blob-tr 16s ease-in-out infinite;
 }
-/* bottom-right cyan */
+/* bottom-right — deep teal */
 .blob--br-cyan {
-  width: 280px; height: 280px;
-  background: rgba(0,224,255,.24);
-  bottom: -8%; right: -5%;
-  filter: blur(72px);
-  animation: blob-br 13s ease-in-out infinite;
+  width: 48vw; height: 48vw;
+  max-width: 520px; max-height: 520px;
+  background: rgba(0,160,200,.12);
+  bottom: -18%; right: -12%;
+  filter: blur(105px);
+  animation: blob-br 15s ease-in-out infinite;
 }
-/* bottom-left orange */
+/* bottom-left — warm amber */
 .blob--bl-orange {
-  width: 290px; height: 290px;
-  background: rgba(255,106,0,.26);
-  bottom: -8%; left: -6%;
-  filter: blur(78px);
-  animation: blob-bl 15s ease-in-out infinite;
+  width: 52vw; height: 52vw;
+  max-width: 540px; max-height: 540px;
+  background: rgba(220,80,0,.11);
+  bottom: -20%; left: -14%;
+  filter: blur(110px);
+  animation: blob-bl 17s ease-in-out infinite;
 }
 
 @keyframes blob-tl {
   0%,100% { transform: translate(0,0) scale(1); }
-  50%      { transform: translate(80px,60px) scale(1.15); }
+  50%      { transform: translate(6vw,5vw) scale(1.1); }
 }
 @keyframes blob-tr {
   0%,100% { transform: translate(0,0) scale(1); }
-  50%      { transform: translate(-80px,60px) scale(0.88); }
+  50%      { transform: translate(-6vw,5vw) scale(0.9); }
 }
 @keyframes blob-br {
   0%,100% { transform: translate(0,0) scale(1); }
-  50%      { transform: translate(-70px,-65px) scale(1.12); }
+  50%      { transform: translate(-5vw,-5vw) scale(1.08); }
 }
 @keyframes blob-bl {
   0%,100% { transform: translate(0,0) scale(1); }
-  50%      { transform: translate(70px,-60px) scale(0.9); }
+  50%      { transform: translate(5vw,-5vw) scale(0.92); }
 }
 
 /* logos row pinned to bottom of hero, no background */
