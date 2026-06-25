@@ -115,7 +115,7 @@ export default function ServicesPage() {
               { src: '/img/service-scanning.png', alt: 'On-site 3D scanning' },
               { src: '/img/proj-steam-turbine.jpg', alt: 'Steam turbine laser mapping' },
               { src: '/img/proj-steel-mill.jpg', alt: 'Steel mill alignment' },
-              { src: '/img/proj-npd-tools.jpg', alt: 'Aerospace curing tool' },
+              { src: '/img/proj-shaft-alignment.jpg', alt: 'Shaft alignment on-site' },
             ].map((p, i) => (
               <div key={i} className="photo-strip-item">
                 <img src={p.src} alt={p.alt} loading="lazy" />
