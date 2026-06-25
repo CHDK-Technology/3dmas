@@ -263,11 +263,11 @@ button { font-family: var(--sans); cursor: pointer; }
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(180deg,
-    rgba(5,7,10,.08) 0%,
-    rgba(5,7,10,.12) 30%,
-    rgba(5,7,10,.50) 60%,
-    rgba(5,7,10,.80) 80%,
-    rgba(5,7,10,.92) 100%
+    rgba(5,7,10,.02) 0%,
+    rgba(5,7,10,.05) 25%,
+    rgba(5,7,10,.35) 55%,
+    rgba(5,7,10,.72) 78%,
+    rgba(5,7,10,.88) 100%
   );
 }
 /* ISO badge — top left */
@@ -404,7 +404,7 @@ button { font-family: var(--sans); cursor: pointer; }
 .hero-intro p { font-size: 17px; line-height: 1.75; color: var(--text); }
 .hero-h1 {
   font-family: var(--display);
-  font-size: clamp(42px, 5.5vw, 82px); font-weight: 900;
+  font-size: clamp(52px, 7.5vw, 112px); font-weight: 900;
   line-height: .95; letter-spacing: -.025em; text-transform: uppercase;
   color: #fff; margin: 0;
 }
