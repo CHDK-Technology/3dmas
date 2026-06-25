@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Microscope, Wrench, Ruler, ScanLine } from 'lucide-react';
 import Seo from '../components/Seo.jsx';
 import Counter from '../components/Counter.jsx';
+import Lightbox from '../components/Lightbox.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -32,7 +34,19 @@ const GOALS = [
   'Providing the solution right the first time',
 ];
 
+const GALLERY = [
+  { src: '/img/services-1.jpg',     alt: 'Aerospace fixture frames in workshop' },
+  { src: '/img/work-mold.jpg',      alt: 'Machined aluminium lay-up mold' },
+  { src: '/img/work-fixture.jpg',   alt: 'Steel jig frames on shop floor' },
+  { src: '/img/work-mold2.jpg',     alt: 'Polished machined tool component' },
+  { src: '/img/services-3.jpg',     alt: 'Assembly jigs in production bay' },
+  { src: '/img/work-composite.jpg', alt: 'Composite mold parts' },
+  { src: '/img/services-2.jpg',     alt: 'Large structural fixture' },
+  { src: '/img/team-exhibition.jpg',alt: '3DMAS team at industry exhibition' },
+];
+
 export default function AboutPage() {
+  const [lightIdx, setLightIdx] = useState(null);
   return (
     <main style={{ paddingTop: 64 }}>
       <Seo
@@ -122,21 +136,21 @@ export default function AboutPage() {
             </motion.div>
           </div>
           <motion.div className="photo-strip" {...fadeUp(0.05)}>
-            {[
-              { src: '/img/services-1.jpg',       alt: 'Aerospace fixture frames in workshop' },
-              { src: '/img/work-mold.jpg',         alt: 'Machined aluminium lay-up mold' },
-              { src: '/img/work-fixture.jpg',      alt: 'Steel jig frames on shop floor' },
-              { src: '/img/work-mold2.jpg',        alt: 'Polished machined tool component' },
-              { src: '/img/services-3.jpg',        alt: 'Assembly jigs in production bay' },
-              { src: '/img/work-composite.jpg',    alt: 'Composite mold parts' },
-              { src: '/img/services-2.jpg',        alt: 'Large structural fixture' },
-              { src: '/img/team-exhibition.jpg',   alt: '3DMAS team at industry exhibition' },
-            ].map((p, i) => (
-              <div key={i} className="photo-strip-item">
+            {GALLERY.map((p, i) => (
+              <div key={i} className="photo-strip-item" onClick={() => setLightIdx(i)}>
                 <img src={p.src} alt={p.alt} loading="lazy" />
               </div>
             ))}
           </motion.div>
+          {lightIdx !== null && (
+            <Lightbox
+              images={GALLERY}
+              index={lightIdx}
+              onClose={() => setLightIdx(null)}
+              onPrev={() => setLightIdx((lightIdx - 1 + GALLERY.length) % GALLERY.length)}
+              onNext={() => setLightIdx((lightIdx + 1) % GALLERY.length)}
+            />
+          )}
         </div>
       </section>
 

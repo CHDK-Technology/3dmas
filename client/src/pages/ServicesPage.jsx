@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers } from 'lucide-react';
 import Seo from '../components/Seo.jsx';
+import Lightbox from '../components/Lightbox.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -74,7 +76,15 @@ function EquipCard({ m, s }) {
   );
 }
 
+const WORK_PHOTOS = [
+  { src: '/img/service-scanning.png',    alt: 'On-site 3D scanning' },
+  { src: '/img/proj-steam-turbine.jpg',  alt: 'Steam turbine laser mapping' },
+  { src: '/img/proj-steel-mill.jpg',     alt: 'Steel mill alignment' },
+  { src: '/img/proj-shaft-alignment.jpg',alt: 'Shaft alignment on-site' },
+];
+
 export default function ServicesPage() {
+  const [lightIdx, setLightIdx] = useState(null);
   return (
     <main style={{ paddingTop: 64 }}>
       <Seo
@@ -111,17 +121,21 @@ export default function ServicesPage() {
           </motion.div>
 
           <motion.div className="photo-strip" {...fadeUp(0.08)} style={{ marginTop: 48 }}>
-            {[
-              { src: '/img/service-scanning.png', alt: 'On-site 3D scanning' },
-              { src: '/img/proj-steam-turbine.jpg', alt: 'Steam turbine laser mapping' },
-              { src: '/img/proj-steel-mill.jpg', alt: 'Steel mill alignment' },
-              { src: '/img/proj-shaft-alignment.jpg', alt: 'Shaft alignment on-site' },
-            ].map((p, i) => (
-              <div key={i} className="photo-strip-item">
+            {WORK_PHOTOS.map((p, i) => (
+              <div key={i} className="photo-strip-item" onClick={() => setLightIdx(i)}>
                 <img src={p.src} alt={p.alt} loading="lazy" />
               </div>
             ))}
           </motion.div>
+          {lightIdx !== null && (
+            <Lightbox
+              images={WORK_PHOTOS}
+              index={lightIdx}
+              onClose={() => setLightIdx(null)}
+              onPrev={() => setLightIdx((lightIdx - 1 + WORK_PHOTOS.length) % WORK_PHOTOS.length)}
+              onNext={() => setLightIdx((lightIdx + 1) % WORK_PHOTOS.length)}
+            />
+          )}
         </div>
       </section>
 
