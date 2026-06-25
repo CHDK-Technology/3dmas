@@ -13,15 +13,15 @@ const fadeUp = (delay = 0) => ({
 });
 
 const PROJECTS = [
-  { tag: 'Aerospace',      t: 'LCACT Skin-Part Layup Molds',          d: 'Design and manufacture of composite lay-up molds and trimming fixtures for LCACT aircraft skin parts, machined on double-column VMC and CMM-verified.' },
-  { tag: 'Aerospace',      t: 'Aerospace Layup Tools',                d: 'Production tooling and new product development (NPD) for aerospace composite components, from design through inspection.' },
-  { tag: 'Power',          t: 'Steam Turbine Digital Mapping',        d: 'On-site digital mapping of steam turbines using laser trackers during planned outages for power generation facilities.' },
-  { tag: 'Power',          t: 'Stator Key-Bar Setting',               d: 'Steam and hydro generator stator key-bar setting and validation using high-accuracy laser tracker measurement.' },
-  { tag: 'Steel',          t: 'Steel Mill Laser Alignment',           d: 'Precision laser alignment of steel mill stands and rolls, including catenary and shaft alignment for continuous lines.' },
-  { tag: 'Process',        t: 'Cement, Printing & Paper Mill Alignment', d: 'Multi-coupling shaft alignment and live-move correction for cement mills, printing machines and paper mills.' },
-  { tag: 'Infrastructure', t: '2.5 km Bridge Scan — Leica P50',       d: 'Long-range 3D scanning of a 2.5 km bridge with the Leica P50 (1 km range) scanner, followed by registration and modelling.' },
-  { tag: 'Scanning',       t: 'Volume Calculation from Scan Data',    d: 'Scan-to-mesh workflows for stockpile and component volume calculation, delivering accurate volumetric reports from point-cloud data.' },
-  { tag: 'Reverse Eng.',   t: 'Scan-to-CAD Reconstruction',          d: 'Reverse engineering of castings, dies, moulds and legacy components into production-intent CAD using blue-light and laser scanning.' },
+  { tag: 'Aerospace',      img: '/img/proj-lcact-mold.jpg',       t: 'LCACT Skin-Part Layup Molds',          d: 'Design and manufacture of composite lay-up molds and trimming fixtures for LCACT aircraft skin parts, machined on double-column VMC and CMM-verified.' },
+  { tag: 'Aerospace',      img: '/img/proj-aerospace-tools.png',  t: 'Aerospace Layup Tools',                d: 'Production tooling and new product development (NPD) for aerospace composite components, from design through inspection.' },
+  { tag: 'Power',          img: '/img/proj-steam-turbine.jpg',    t: 'Steam Turbine Digital Mapping',        d: 'On-site digital mapping of steam turbines using laser trackers during planned outages for power generation facilities.' },
+  { tag: 'Power',          img: '/img/proj-stator-keybars.jpg',   t: 'Stator Key-Bar Setting',               d: 'Steam and hydro generator stator key-bar setting and validation using high-accuracy laser tracker measurement.' },
+  { tag: 'Steel',          img: '/img/proj-steel-mill.jpg',       t: 'Steel Mill Laser Alignment',           d: 'Precision laser alignment of steel mill stands and rolls, including catenary and shaft alignment for continuous lines.' },
+  { tag: 'Process',        img: '/img/proj-shaft-alignment.jpg',  t: 'Cement, Printing & Paper Mill Alignment', d: 'Multi-coupling shaft alignment and live-move correction for cement mills, printing machines and paper mills.' },
+  { tag: 'Infrastructure', img: '/img/proj-bridge-scan.jpg',      t: '2.5 km Bridge Scan — Leica P50',       d: 'Long-range 3D scanning of a 2.5 km bridge with the Leica P50 (1 km range) scanner, followed by registration and modelling.' },
+  { tag: 'Scanning',       img: null,                             t: 'Volume Calculation from Scan Data',    d: 'Scan-to-mesh workflows for stockpile and component volume calculation, delivering accurate volumetric reports from point-cloud data.' },
+  { tag: 'Reverse Eng.',   img: null,                             t: 'Scan-to-CAD Reconstruction',          d: 'Reverse engineering of castings, dies, moulds and legacy components into production-intent CAD using blue-light and laser scanning.' },
 ];
 
 const STATS = [
@@ -91,7 +91,10 @@ export default function ProjectsPage() {
                 variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.42 } } }}
               >
                 <div className="proj-card-v2-media">
-                  <Media type="image" ratio="16/9" label={p.t} note={`Photo of the ${p.tag.toLowerCase()} project`} />
+                  {p.img
+                    ? <img src={p.img} alt={p.t} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    : <Media type="image" ratio="16/9" label={p.t} note={`Photo coming soon`} />
+                  }
                 </div>
                 <div className="proj-card-v2-body">
                   <span className="proj-card-v2-tag">{p.tag}</span>
