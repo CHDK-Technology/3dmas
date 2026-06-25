@@ -299,6 +299,70 @@ button { font-family: var(--sans); cursor: pointer; }
   content: ''; display: block; width: 32px; height: 2px; background: var(--orange);
 }
 
+/* ── BLOB BACKGROUND — corner edge glow (option D) ── */
+.blob-bg {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+/* top-left cyan */
+.blob--tl-cyan {
+  width: 280px; height: 280px;
+  background: rgba(0,224,255,.22);
+  top: -14%; left: -8%;
+  filter: blur(72px);
+  animation: blob-tl 20s ease-in-out infinite;
+}
+/* top-right orange */
+.blob--tr-orange {
+  width: 260px; height: 260px;
+  background: rgba(255,106,0,.24);
+  top: -12%; right: -7%;
+  filter: blur(68px);
+  animation: blob-tr 24s ease-in-out infinite;
+}
+/* bottom-right cyan */
+.blob--br-cyan {
+  width: 240px; height: 240px;
+  background: rgba(0,224,255,.18);
+  bottom: -12%; right: -6%;
+  filter: blur(65px);
+  animation: blob-br 22s ease-in-out infinite;
+}
+/* bottom-left orange */
+.blob--bl-orange {
+  width: 250px; height: 250px;
+  background: rgba(255,106,0,.20);
+  bottom: -13%; left: -7%;
+  filter: blur(70px);
+  animation: blob-bl 26s ease-in-out infinite;
+}
+
+@keyframes blob-tl {
+  0%,100% { transform: translate(0,0) scale(1); }
+  40%      { transform: translate(30px,22px) scale(1.1); }
+  70%      { transform: translate(10px,-14px) scale(.93); }
+}
+@keyframes blob-tr {
+  0%,100% { transform: translate(0,0) scale(1); }
+  35%      { transform: translate(-25px,18px) scale(.92); }
+  65%      { transform: translate(-10px,28px) scale(1.08); }
+}
+@keyframes blob-br {
+  0%,100% { transform: translate(0,0) scale(1); }
+  45%      { transform: translate(-20px,-20px) scale(1.06); }
+  75%      { transform: translate(14px,-10px) scale(.94); }
+}
+@keyframes blob-bl {
+  0%,100% { transform: translate(0,0) scale(1); }
+  38%      { transform: translate(22px,-16px) scale(.95); }
+  68%      { transform: translate(8px,20px) scale(1.07); }
+}
+
 /* logos row pinned to bottom of hero, no background */
 .hero-logos {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;

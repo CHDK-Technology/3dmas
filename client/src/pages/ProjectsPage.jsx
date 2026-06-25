@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Media from '../components/Media.jsx';
 import Seo from '../components/Seo.jsx';
-import ParticleBg from '../components/ParticleBg.jsx';
+import BlobBg from '../components/BlobBg.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
 
       {/* ── PAGE HERO ── */}
       <section className="ind-hero">
-        <ParticleBg scanLine={true} />
+        <BlobBg />
         <div className="wrap ind-hero-inner">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

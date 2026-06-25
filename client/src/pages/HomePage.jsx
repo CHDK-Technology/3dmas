@@ -4,7 +4,7 @@ import { ScanLine, Target, RotateCcw, Settings2, Crosshair, Layers, ArrowRight, 
 import Seo from '../components/Seo.jsx';
 import Media from '../components/Media.jsx';
 import Counter from '../components/Counter.jsx';
-import ParticleBg from '../components/ParticleBg.jsx';
+import BlobBg from '../components/BlobBg.jsx';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = (delay = 0) => ({
@@ -59,7 +59,7 @@ export default function HomePage() {
 
       {/* 1 - HERO */}
       <section className="hero">
-        <ParticleBg scanLine={true} />
+        <BlobBg variant="hero" />
 
         {/* bottom-left title card */}
         <div className="hero-body-wrap">
@@ -98,7 +98,7 @@ export default function HomePage() {
 
       {/* STAT BAND */}
       <section className="section section--surface" style={{ paddingTop: 48, paddingBottom: 72, position: 'relative' }}>
-        <ParticleBg />
+        <BlobBg />
         <div className="wrap">
           <motion.div className="statband" {...fadeUp()}>
             <div className="stat-cell">
