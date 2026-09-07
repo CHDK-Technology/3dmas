@@ -16,6 +16,7 @@ const INDUSTRIES = [
     n: '01',
     t: 'Aerospace & Defence',
     accent: 'Aerospace',
+    img: '/img/proj-aerospace-tools.png',
     d: 'Composite lay-up molds and trimming fixtures for aircraft skin parts, first-article inspection and laser-projected assembly guidance for brackets, ribs and stringers.',
     apps: ['Composite lay-up mold design & manufacture', 'First-article & lot inspection', 'Laser-projected assembly guidance', 'Dimensional verification of structures'],
   },
@@ -23,6 +24,7 @@ const INDUSTRIES = [
     n: '02',
     t: 'Power & Turbines',
     accent: 'Power',
+    img: '/img/proj-steam-turbine.jpg',
     d: 'Digital mapping and precision alignment for hydro, steam, gas, nuclear and wind turbine plants — including generator stator key-bar setting.',
     apps: ['Steam turbine digital mapping', 'Generator stator key-bar setting', 'Turbine blade & casing inspection', 'On-site alignment during planned outages'],
   },
@@ -30,6 +32,7 @@ const INDUSTRIES = [
     n: '03',
     t: 'Steel & Heavy Plants',
     accent: 'Steel',
+    img: '/img/proj-steel-mill.jpg',
     d: 'Steel mill laser alignment, catenary and shaft alignment, structural verification and large-scale measurement for heavy fabricated assemblies.',
     apps: ['Rolling mill stand & roll alignment', 'Catenary & shaft alignment', 'Large-structure dimensional verification', 'Continuous-line laser alignment'],
   },
@@ -37,6 +40,7 @@ const INDUSTRIES = [
     n: '04',
     t: 'Automotive',
     accent: 'Automotive',
+    img: '/img/work-fixture.jpg',
     d: 'Production line building, tooling and fixture inspection, body-panel scanning and dimensional reporting for OEMs and Tier-1 suppliers.',
     apps: ['Production line building', 'Fixture & jig inspection', 'Body-panel & component scanning', 'CAD comparison & deviation analysis'],
   },
@@ -44,6 +48,7 @@ const INDUSTRIES = [
     n: '05',
     t: 'Railway & Marine',
     accent: 'Railway',
+    img: '/img/work-scan.jpg',
     d: 'Railway construction, shipbuilding and marine fabrication measurement, road construction surveys and floor layouts for production lines.',
     apps: ['Railway track & structure measurement', 'Marine & shipbuilding fabrication', 'Road construction surveys', 'Robotic station floor layouts'],
   },
@@ -51,6 +56,7 @@ const INDUSTRIES = [
     n: '06',
     t: 'Infrastructure & Bridges',
     accent: 'Infrastructure',
+    img: '/img/proj-bridge-scan.jpg',
     d: 'Long-range 3D scanning of bridges and large civil structures using the Leica P50, followed by registration, modelling and volume calculation.',
     apps: ['Bridge scanning up to 2.5 km', 'Long-range scan with Leica P50', 'Stockpile volume calculation', 'As-built documentation'],
   },
@@ -105,6 +111,9 @@ export default function IndustriesPage() {
                 className="ind-card"
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
               >
+                <div className="ind-card-img">
+                  <img src={ind.img} alt={ind.t} loading="lazy" />
+                </div>
                 <div className="ind-card-num">{ind.n}</div>
                 <div className="ind-card-body">
                   <h2 className="ind-card-title">{ind.t}</h2>
