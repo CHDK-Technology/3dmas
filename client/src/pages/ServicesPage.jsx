@@ -175,7 +175,7 @@ export default function ServicesPage() {
 
       {/* MANUFACTURING PROCESS */}
       <section className="section section--navy">
-        <div className="wrap">
+     <div className="wrap">
           <motion.div {...fadeUp()}>
             <p className="section-tag section-tag--light">Manufacturing Process</p>
             <h2 className="section-h section-h--light">From design approval<br />to dispatch.</h2>

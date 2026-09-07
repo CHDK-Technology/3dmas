@@ -155,6 +155,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 2b - SHOWREEL */}
+      <section className="section section--border-top">
+        <div className="wrap">
+          <div className="section-head">
+            <motion.div {...fadeUp()}>
+              <p className="section-tag">See It In Action</p>
+              <h2 className="section-h">Inside our metrology<br />and manufacturing floor.</h2>
+              <p className="section-sub">A short walkthrough of our scanning, alignment and machining work — on-site and on the shop floor.</p>
+            </motion.div>
+          </div>
+          <motion.div
+            {...fadeUp(0.05)}
+            style={{ position: 'relative', borderRadius: 8, overflow: 'hidden', border: '1px solid var(--border)' }}
+          >
+            <video
+              src="/img/showreel-2.mp4"
+              poster="/img/showreel-2-poster.jpg"
+              autoPlay
+              muted
+              loop
+              controls
+              playsInline
+              preload="auto"
+              style={{ width: '100%', display: 'block', aspectRatio: '16/9', objectFit: 'cover', background: '#000' }}
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* 3 - INDUSTRIES (teaser -> /industries) */}
       <section className="section section--border-top">
         <div className="wrap">
