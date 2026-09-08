@@ -70,7 +70,7 @@ export default function HomePage() {
           >
             <div className="hero-eyebrow">Precision Metrology &amp; Manufacturing</div>
             <h1 className="hero-h1">
-              Precision<br /><span className="acc">That Performs</span>
+              PRECISION<br /><span className="acc">THAT PERFORMS</span>
             </h1>
             <div className="hero-actions">
               <Link to="/services" className="btn-primary">Explore Services <ArrowRight size={15} /></Link>

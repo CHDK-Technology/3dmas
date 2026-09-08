@@ -48,6 +48,11 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <span>© {new Date().getFullYear()} 3DMAS — 3 Dimensional Measurement &amp; Solution</span>
+          <div className="foot-legal">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/cookie-policy">Cookie Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
+          </div>
           <div className="foot-socials">
             <a href="https://www.3dmas.in" target="_blank" rel="noreferrer">3dmas.in</a>
             <a href="#">LinkedIn</a>
