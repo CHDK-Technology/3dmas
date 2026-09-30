@@ -38,7 +38,7 @@ export default function Footer() {
           <div className="foot-col">
             <h4>Locations</h4>
             <ul>
-              <li>Balewadi, Pune 411045 (HQ)</li>
+              <li>Dehu, Pune 412109 (HQ)</li>
               <li>Manjusar, Vadodara 391775</li>
               <li>Regional offices across India: Ahmedabad, Surat, Bengaluru, Bhopal, Chennai, Gurugram, Jaipur, Chakradharpur &amp; Karanjia</li>
             </ul>
